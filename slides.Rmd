@@ -1,0 +1,142 @@
+---
+title: "{shinyMobile} Hands-on"
+subtitle: '`r Sys.Date()`'
+author: "SCC"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: assets/libs
+    css:
+      - assets/css/js4shiny-xaringan-base.css
+      - assets/css/tachyons.min.css
+      #- assets/css/animate.css
+      - assets/css/js4shiny-xaringan-extra.css
+      - assets/css/custom.css
+    includes:
+      after_body: assets/html/js4shiny-includes.html
+    seal: false
+    chakra: assets/js/remark-latest.min.js
+    nature:
+      ratio: 16:9
+      slideNumberFormat: "%current%"
+      highlightStyle: docco
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: inverse, center, title-slide, middle
+
+
+# {shinyMobile} Hands-on
+
+## David Granjon
+
+### `r Sys.Date()`
+
+```{r setup, include=FALSE}
+library(emo)
+library(shiny)
+library(countdown)
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width = 10, fig.height = 6, fig.retina = 2,
+  warning = FALSE, message = FALSE
+)
+
+#xaringanExtra::use_search(show_icon = TRUE)
+xaringanExtra::use_tile_view()
+xaringanExtra::use_share_again()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_tachyons()
+
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+xaringanExtra::use_panelset()
+```
+
+```{r js4shiny, echo=FALSE}
+js4shiny::html_setup(stylize = c("fonts", "variables", "code"))
+```
+
+---
+
+# Hi there `r ji("pizza")`
+
+We're in for 2 hours of **fun**!
+
+- Grab a `r ji("coffee")`
+- Make yourself comfortable `r ji("couch")` or 🧘
+- Ask questions `r ji("question")` 
+
+.flex.tc[
+.w-30.mr3.center[
+<img class="br-100" width="100px" height="100px" src="assets/images/granjda1.jpg" />
+<br>
+.f5[David]
+
+.small[Senior Expert Data Scientist, Novartis]
+]
+]
+
+---
+# Program
+
+.panelset[
+.panel[.panel-name[Partie 1]
+Introduction au développement d'applications shiny mobiles avec `{shiny}`, `{golem}` et `{shinyMobile}`
+
+.center[
+__July 13, 2021__
+]
+
+Learning objectives:
+- `r ji("teacher")` Motivations: état de l'art.
+- `r ji("teacher")` Présentation de `{shinyMobile}`: composants, templates, thèmes ...
+- Création d'une application de production.
+- `r ji("coffee")`
+]
+
+.panel[.panel-name[Partie 2]
+Découvrir le monde des applications web progressives (PWA) et
+mettre en place les bases sur un exemple concret. 
+.center[
+__May 3, 2021__
+]
+
+Learning objectives:
+- 
+- `r ji("coffee")`
+
+]
+]
+
+---
+# Workshop Material
+
+- Slides: TBD ...
+
+## Prerequisites
+- ...
+
+---
+class: inverse center title-slide middle
+# Part 1 Introduction to {shinyMobile}
+
+
+---
+class: header_background center middle
+# What is {shinyMobile}? 
+
+
+```{r, echo = FALSE, out.width='20%', fig.align='center'}
+knitr::include_graphics("assets/images/shinyMobile.svg")
+```
+
+---
+class: header_background
+# Demo
+
+Explore `{shinyMobile}` capabilities.
+
+TBD

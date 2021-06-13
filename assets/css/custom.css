@@ -1,0 +1,27 @@
+.pull-left-30 {
+  float: left;
+  width: 27%;
+}
+
+.pull-right-30 {
+  float: right;
+  width: 27%;
+}
+
+.pull-left-70 {
+  float: left;
+  width: 67%;
+}
+
+.pull-right-70 {
+  float: right;
+  width: 67%;
+}
+
+.small{
+  font-size: 0.75em;
+}
+
+.xsmall{
+  font-size: 0.4em;
+}
