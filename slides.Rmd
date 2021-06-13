@@ -71,7 +71,7 @@ We're in for 2 hours of **fun**!
 
 .flex.tc[
 .w-30.mr3.center[
-<img class="br-100" width="100px" height="100px" src="assets/images/granjda1.jpg" />
+<img class="br-100" width="100px" height="100px" src="assets/images/granjda1.jpg" class="svg-img"/>
 <br>
 .f5[David]
 
@@ -84,11 +84,7 @@ We're in for 2 hours of **fun**!
 
 .panelset[
 .panel[.panel-name[Partie 1]
-Introduction au développement d'applications shiny mobiles avec `{shiny}`, `{golem}` et `{shinyMobile}`
-
-.center[
-__July 13, 2021__
-]
+Introduction au développement d'applications mobiles avec `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
 - `r ji("teacher")` Motivations: état de l'art.
@@ -100,12 +96,10 @@ Learning objectives:
 .panel[.panel-name[Partie 2]
 Découvrir le monde des applications web progressives (PWA) et
 mettre en place les bases sur un exemple concret. 
-.center[
-__May 3, 2021__
-]
 
 Learning objectives:
-- 
+- Définition d'une application web progressive.
+- Mise en place.
 - `r ji("coffee")`
 
 ]
@@ -125,13 +119,62 @@ class: inverse center title-slide middle
 
 
 ---
-class: header_background center middle
+class: header_background
+# Développement mobile
+Classic web apps are not optimized for mobile platforms:
+  - Rarely consider the small display.
+  - Harder to access (no launch icon).
+  - Harder to focus if not fullscreen. 
+  - Don't work offline.
+
+.center[
+Appearance is critical for end user. `r emo::ji("beauty")`
+]  
+
+---
+class: header_background
+# Développement mobile
+`r emo::ji("smiling_imp")` Let's go native!
+
+Well ... it's quite complex:
+
+  - Know multiple languages: Java, Swift, ...
+  - Maintain multiple code bases.
+
+.center[
+`r emo::ji("question")` Isn't there something simpler? 
+]
+
+---
+class: header_background
+# Applications web progressives
+
+Take some advantages of both worlds:
+
+  - Can be installed on the device ... 
+  - ... But run via a web browser.
+  - Provide offline features (don't expect too much).
+  - One code base (web languages).
+
+`r emo::ji("car")` Less performance than native. 
+
+---
+class: header_background 
+# Développement mobile et {shiny}?
+
+- Let's be honest, there is almost nothing...
+- `{miniUI}` is not really for mobile development.
+- Many shiny apps are not optimized for mobile. 
+
+```{r, echo = FALSE, out.width='40%', fig.align='center'}
+knitr::include_graphics("assets/images/gadgets-tabstrip.png")
+```
+
+---
+class: header_background 
 # What is {shinyMobile}? 
 
-
-```{r, echo = FALSE, out.width='20%', fig.align='center'}
-knitr::include_graphics("assets/images/shinyMobile.svg")
-```
+<img src="assets/images/shinyMobile.svg" width="20%" style="display: block; margin: auto;" class="svg-img" />
 
 ---
 class: header_background
@@ -140,3 +183,14 @@ class: header_background
 Explore `{shinyMobile}` capabilities.
 
 TBD
+
+
+--- 
+class: header_background
+# Other templates
+OnsenUI 2, ...
+
+
+---
+class: inverse center title-slide middle
+# Part 2 Introduction to PWA with {shinyMobile}
