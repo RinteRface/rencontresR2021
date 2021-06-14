@@ -4,7 +4,7 @@
     <title>{shinyMobile} Hands-on</title>
     <meta charset="utf-8" />
     <meta name="author" content="SCC" />
-    <meta name="date" content="2021-06-13" />
+    <meta name="date" content="2021-06-14" />
     <link href="assets/libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view/tile-view.js"></script>
     <script src="assets/libs/clipboard/clipboard.min.js"></script>
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="assets/css/tachyons.min.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/js4shiny-xaringan-extra.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -41,7 +42,7 @@ class: inverse, center, title-slide, middle
 
 ## David Granjon
 
-### 2021-06-13
+### 2021-06-14
 
 
 
@@ -72,22 +73,21 @@ We're in for 2 hours of **fun**!
 
 .panelset[
 .panel[.panel-name[Partie 1]
-Introduction au développement d'applications mobiles avec `{shiny}`, `{golem}` et `{shinyMobile}`
+Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
-- 👨‍🏫 Motivations: état de l'art.
-- 👩‍🏫 Présentation de `{shinyMobile}`: composants, templates, thèmes ...
-- Création d'une application de production.
+- 👩‍🏫 State of the art.
+- 👩‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
+- Setup a production app.
 - ☕
 ]
 
 .panel[.panel-name[Partie 2]
-Découvrir le monde des applications web progressives (PWA) et
-mettre en place les bases sur un exemple concret. 
+Discover progressive web apps (PWA) and create a simple example, built on top the previous part. 
 
 Learning objectives:
-- Définition d'une application web progressive.
-- Mise en place.
+- What is a progressive web app?
+- Step by step development.
 - ☕
 
 ]
@@ -108,21 +108,26 @@ class: inverse center title-slide middle
 
 ---
 class: header_background
-# Développement mobile
-Classic web apps are not optimized for mobile platforms:
-  - Rarely consider the small display.
+# Mobile development
+
+&lt;br/&gt;
+## Classic web apps are not optimized for mobile platforms.
+
+  - Rarely consider the __small display__.
   - Harder to access (no launch icon).
-  - Harder to focus if not fullscreen. 
-  - Don't work offline.
+  - Harder to focus if __not fullscreen__. 
+  - Don't work __offline__.
 
 .center[
-Appearance is critical for end user. 💇
+Appearance is critical for end user. 💅
 ]  
 
 ---
 class: header_background
-# Développement mobile
-😈 Let's go native!
+# Mobile development
+
+&lt;br/&gt;
+##😈 Let's go __native__! 
 
 Well ... it's quite complex:
 
@@ -135,32 +140,109 @@ Well ... it's quite complex:
 
 ---
 class: header_background
-# Applications web progressives
+# Progressive web apps
 
-Take some advantages of both worlds:
+&lt;br/&gt;
+## Take some advantages of both worlds:
 
-  - Can be installed on the device ... 
+  - Can be __installed__ on the device ... 
   - ... But run via a web browser.
-  - Provide offline features (don't expect too much).
+  - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
-🚗 Less performance than native. 
+😭 Less performance than native. 
 
 ---
 class: header_background 
-# Développement mobile et {shiny}?
+# Mobile app development and {shiny}?
 
-- Let's be honest, there is almost nothing...
-- `{miniUI}` is not really for mobile development.
+&lt;br/&gt;
+Let's be honest, there is __almost nothing__.
+
+.pull-left[
 - Many shiny apps are not optimized for mobile. 
+- Vertical design.
+- Overflow.
+- Poor user experience.
+]
+  
+.pull-right[
+
+&lt;iframe src="https://thiago-valentim.shinyapps.io/project/?_ga=2.187989743.677910734.1623617328-748932920.1610966288" width="50%" height="300px"&gt;&lt;/iframe&gt;
+]
+
+---
+class: header_background 
+# Mobile app development and {shiny}?
+
+&lt;br/&gt;
+`{miniUI}` exists but not really for mobile development.
 
 &lt;img src="assets/images/gadgets-tabstrip.png" width="40%" style="display: block; margin: auto;" /&gt;
 
+
 ---
 class: header_background 
-# What is {shinyMobile}? 
+# Welcome {shinyMobile}? 
 
-&lt;img src="assets/images/shinyMobile.svg" width="20%" style="display: block; margin: auto;" class="svg-img" /&gt;
+&lt;br/&gt;
+Built on top of the [Framework7](https://framework7.io/) web framework.
+
+.pull-left[
+- Native look and feel.
+- PWA support.
+- ...
+]
+
+.pull-right[
+&lt;img src="assets/images/shinyMobile.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/&gt;
+]
+
+---
+class: header_background 
+# Key features
+
+- Layout
+- Skins
+- Themes
+- Components
+- ...
+
+---
+class: header_background 
+# Key features: Layout
+
+&lt;br/&gt;
+
+3 layouts:
+
+.pull-left[
+- `f7SingleLayout()`: simple app with toolbar.
+- `f7TabsLayout()`: multi tabs app.
+- `f7Splitlayout()`: tablet/desktop optimized layout (sidebar + body).
+]
+
+.pull-right[
+&lt;img src="assets/images/single-layout.png" width="33%" /&gt;&lt;img src="assets/images/tabs-layout.png" width="33%" /&gt;&lt;img src="assets/images/split-layout.png" width="33%" /&gt;
+]
+
+---
+class: header_background 
+# Key features: Skins
+
+&lt;br/&gt;
+2 main skins:
+
+.pull-left[
+- iOS.
+
+&lt;img src="assets/images/ios-skin.png" width="30%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+- Android (material design).
+&lt;img src="assets/images/android-skin.png" width="40%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 class: header_background
@@ -168,14 +250,26 @@ class: header_background
 
 Explore `{shinyMobile}` capabilities.
 
-TBD
-
-
---- 
-class: header_background
-# Other templates
-OnsenUI 2, ...
-
+&lt;div class="row"&gt;
+  &lt;div class="col-sm-6"&gt;
+    &lt;div class="card"&gt;
+      &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Special title treatment&lt;/h5&gt;
+        &lt;p class="card-text"&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="col-sm-6"&gt;
+    &lt;div class="card"&gt;
+      &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Special title treatment&lt;/h5&gt;
+        &lt;p class="card-text"&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
 ---
 class: inverse center title-slide middle
