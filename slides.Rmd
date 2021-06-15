@@ -18,6 +18,7 @@ output:
     seal: false
     chakra: assets/js/remark-latest.min.js
     nature:
+      beforeInit: ["https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"]
       ratio: 16:9
       slideNumberFormat: "%current%"
       highlightStyle: docco
@@ -48,12 +49,13 @@ xaringanExtra::use_tile_view()
 xaringanExtra::use_share_again()
 xaringanExtra::use_clipboard()
 xaringanExtra::use_tachyons()
+xaringanExtra::use_fit_screen()
+xaringanExtra::use_panelset()
 
 xaringanExtra::use_extra_styles(
   hover_code_line = TRUE,         #<<
   mute_unhighlighted_code = TRUE  #<<
 )
-xaringanExtra::use_panelset()
 ```
 
 ```{r js4shiny, echo=FALSE}
@@ -224,26 +226,57 @@ class: header_background
 - Components
 - ...
 
+
 ---
-class: header_background 
 # Key features: Layout
 
-<br/>
-
-3 layouts:
+<script>
+  $('#singleLayout, #tabsLayout').on('click', function() {
+    $('#singleLayoutDemo').toggle();
+    $('#tabLayoutDemo').toggle();
+  });
+</script>
 
 .pull-left[
-- `f7SingleLayout()`: simple app with toolbar.
-- `f7TabsLayout()`: multi tabs app.
-- `f7Splitlayout()`: tablet/desktop optimized layout (sidebar + body).
+- `f7SingleLayout()`: one page app. 
+- `f7TabLayout()`: multi-tabs app.
+<br/>
+<br/>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="layoutRadio" id="singleLayout" checked>
+  <label class="form-check-label" for="singleLayout">single</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="layoutRadio" id="tabsLayout">
+  <label class="form-check-label" for="tabsLayout">Tabs</label>
+</div>
 ]
 
 .pull-right[
-```{r, echo = FALSE, fig.show="hold", out.width="33%"}
-knitr::include_graphics("assets/images/single-layout.png")
-knitr::include_graphics("assets/images/tabs-layout.png")
-knitr::include_graphics("assets/images/split-layout.png")
-```
+<div class="md-iphone-5 md-black-device" id="singleLayoutDemo" style="font-size: 0.5em; margin-top: -50px !important;">
+<div class="md-body">
+<div class="md-buttons"></div>
+<div class="md-front-camera"></div>
+<div class="md-top-speaker"></div>
+<div class="md-screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/miniUI2Single" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+</div>
+<button class="md-home-button"></button>
+</div>
+</div>
+
+<div class="md-iphone-5 md-black-device" id="tabLayoutDemo" style="font-size: 0.5em; margin-top: -50px !important; display: none;">
+<div class="md-body">
+<div class="md-buttons"></div>
+<div class="md-front-camera"></div>
+<div class="md-top-speaker"></div>
+<div class="md-screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/miniUI2Tabs" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+</div>
+<button class="md-home-button"></button>
+</div>
+</div>
+
 ]
 
 ---
@@ -276,33 +309,6 @@ class: header_background
 <br/>
 2 themes:
 
-
----
-class: header_background
-# Demo
-
-Explore `{shinyMobile}` capabilities.
-
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
 
 ---
 class: inverse center title-slide middle

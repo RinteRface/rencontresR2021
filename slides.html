@@ -4,7 +4,7 @@
     <title>{shinyMobile} Hands-on</title>
     <meta charset="utf-8" />
     <meta name="author" content="SCC" />
-    <meta name="date" content="2021-06-14" />
+    <meta name="date" content="2021-06-15" />
     <link href="assets/libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view/tile-view.js"></script>
     <script src="assets/libs/clipboard/clipboard.min.js"></script>
@@ -16,9 +16,10 @@
     <script src="assets/libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
     <link href="assets/libs/tachyons/tachyons.min.css" rel="stylesheet" />
-    <link href="assets/libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="assets/libs/xaringanExtra_fit-screen/fit-screen.js"></script>
     <link href="assets/libs/panelset/panelset.css" rel="stylesheet" />
     <script src="assets/libs/panelset/panelset.js"></script>
+    <link href="assets/libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
     <link href="assets/libs/js4shiny/css/_variables-fonts.css" rel="stylesheet" />
     <link href="assets/libs/js4shiny/css/_variables.css" rel="stylesheet" />
     <link href="assets/libs/js4shiny/css/code.css" rel="stylesheet" />
@@ -42,7 +43,7 @@ class: inverse, center, title-slide, middle
 
 ## David Granjon
 
-### 2021-06-14
+### 2021-06-15
 
 
 
@@ -119,7 +120,7 @@ class: header_background
   - Don't work __offline__.
 
 .center[
-Appearance is critical for end user. 💅
+Appearance is critical for end user. 💇
 ]  
 
 ---
@@ -150,7 +151,7 @@ class: header_background
   - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
-😭 Less performance than native. 
+😿 Less performance than native. 
 
 ---
 class: header_background 
@@ -208,22 +209,56 @@ class: header_background
 - Components
 - ...
 
+
 ---
-class: header_background 
 # Key features: Layout
 
-&lt;br/&gt;
-
-3 layouts:
+&lt;script&gt;
+  $('#singleLayout, #tabsLayout').on('click', function() {
+    $('#singleLayoutDemo').toggle();
+    $('#tabLayoutDemo').toggle();
+  });
+&lt;/script&gt;
 
 .pull-left[
-- `f7SingleLayout()`: simple app with toolbar.
-- `f7TabsLayout()`: multi tabs app.
-- `f7Splitlayout()`: tablet/desktop optimized layout (sidebar + body).
+- `f7SingleLayout()`: one page app. 
+- `f7TabLayout()`: multi-tabs app.
+&lt;br/&gt;
+&lt;div class="form-check form-check-inline"&gt;
+  &lt;input class="form-check-input" type="radio" name="layoutRadio" id="singleLayout" checked&gt;
+  &lt;label class="form-check-label" for="singleLayout"&gt;single&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="form-check form-check-inline"&gt;
+  &lt;input class="form-check-input" type="radio" name="layoutRadio" id="tabsLayout"&gt;
+  &lt;label class="form-check-label" for="tabsLayout"&gt;Tabs&lt;/label&gt;
+&lt;/div&gt;
 ]
 
 .pull-right[
-&lt;img src="assets/images/single-layout.png" width="33%" /&gt;&lt;img src="assets/images/tabs-layout.png" width="33%" /&gt;&lt;img src="assets/images/split-layout.png" width="33%" /&gt;
+&lt;div class="md-iphone-5 md-black-device" id="singleLayoutDemo" style="font-size: 0.5em; margin-top: -50px !important;"&gt;
+&lt;div class="md-body"&gt;
+&lt;div class="md-buttons"&gt;&lt;/div&gt;
+&lt;div class="md-front-camera"&gt;&lt;/div&gt;
+&lt;div class="md-top-speaker"&gt;&lt;/div&gt;
+&lt;div class="md-screen"&gt;
+&lt;iframe width="100%" src="https://dgranjon.shinyapps.io/miniUI2Single" allowfullscreen="" frameborder="0" scrolling="no" height="470px"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;button class="md-home-button"&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="md-iphone-5 md-black-device" id="tabLayoutDemo" style="font-size: 0.5em; margin-top: -50px !important; display: none;"&gt;
+&lt;div class="md-body"&gt;
+&lt;div class="md-buttons"&gt;&lt;/div&gt;
+&lt;div class="md-front-camera"&gt;&lt;/div&gt;
+&lt;div class="md-top-speaker"&gt;&lt;/div&gt;
+&lt;div class="md-screen"&gt;
+&lt;iframe width="100%" src="https://dgranjon.shinyapps.io/miniUI2Tabs" allowfullscreen="" frameborder="0" scrolling="no" height="470px"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;button class="md-home-button"&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
 ]
 
 ---
@@ -244,32 +279,14 @@ class: header_background
 &lt;img src="assets/images/android-skin.png" width="40%" style="display: block; margin: auto;" /&gt;
 ]
 
+
 ---
-class: header_background
-# Demo
+class: header_background 
+# Key features: Themes
 
-Explore `{shinyMobile}` capabilities.
+&lt;br/&gt;
+2 themes:
 
-&lt;div class="row"&gt;
-  &lt;div class="col-sm-6"&gt;
-    &lt;div class="card"&gt;
-      &lt;div class="card-body"&gt;
-        &lt;h5 class="card-title"&gt;Special title treatment&lt;/h5&gt;
-        &lt;p class="card-text"&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
-        &lt;a href="#" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="col-sm-6"&gt;
-    &lt;div class="card"&gt;
-      &lt;div class="card-body"&gt;
-        &lt;h5 class="card-title"&gt;Special title treatment&lt;/h5&gt;
-        &lt;p class="card-text"&gt;With supporting text below as a natural lead-in to additional content.&lt;/p&gt;
-        &lt;a href="#" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
 
 ---
 class: inverse center title-slide middle
@@ -277,6 +294,7 @@ class: inverse center title-slide middle
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="assets/js/remark-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script>var slideshow = remark.create({
 "ratio": "16:9",
 "slideNumberFormat": "%current%",
