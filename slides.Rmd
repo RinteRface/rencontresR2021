@@ -242,6 +242,7 @@ class: header_background
 - `f7TabLayout()`: multi-tabs app.
 <br/>
 <br/>
+
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="layoutRadio" id="singleLayout" checked>
   <label class="form-check-label" for="singleLayout">single</label>
@@ -280,35 +281,98 @@ class: header_background
 ]
 
 ---
-class: header_background 
 # Key features: Skins
 
-<br/>
-2 main skins:
+<script>
+  $('#skiniOS, #skinMd').on('click', function() {
+    $('#skiniOSDemo').toggle();
+    $('#skinMdDemo').toggle();
+  });
+</script>
 
 .pull-left[
 - iOS.
+- Android.
 
-```{r, echo = FALSE, fig.align="center", out.width="30%"}
-knitr::include_graphics("assets/images/ios-skin.png")
-```
+<br/>
+<br/>
+
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="skinRadio" id="skiniOS" checked>
+  <label class="form-check-label" for="skiniOS">iOS</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="skinRadio" id="skinMd">
+  <label class="form-check-label" for="skinMd">md</label>
+</div>
+
 ]
 
 .pull-right[
-- Android (material design).
-```{r, echo = FALSE, fig.align="center", out.width="40%"}
-knitr::include_graphics("assets/images/android-skin.png")
-```
+<div class="md-iphone-5 md-black-device" id="skiniOSDemo" style="font-size: 0.5em; margin-top: -50px !important;">
+<div class="md-body">
+<div class="md-buttons"></div>
+<div class="md-front-camera"></div>
+<div class="md-top-speaker"></div>
+<div class="md-screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/miniUI2Demo" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+</div>
+<button class="md-home-button"></button>
+</div>
+</div>
+
+<div class="md-iphone-5 md-black-device" id="skinMdDemo" style="font-size: 0.5em; margin-top: -50px !important; display: none;">
+<div class="md-body">
+<div class="md-buttons"></div>
+<div class="md-front-camera"></div>
+<div class="md-top-speaker"></div>
+<div class="md-screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/miniUI2DemoMd" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+</div>
+<button class="md-home-button"></button>
+</div>
+</div>
 ]
 
 
 ---
-class: header_background 
 # Key features: Themes
 
 <br/>
 2 themes:
 
+
+---
+# Demo app: {deminR}
+
+.pull-left[
+- {deminR}, 2020 Shiny Contest.
+- https://dgranjon.shinyapps.io/deminR
+- https://github.com/DivadNojnarg/deminR
+
+<div class="row">
+<div class="col">
+<img src="assets/images/deminR.png" width="50%" style="display: block; margin: auto;" class="svg-img"/>
+</div>
+<div class="col">
+<img src="assets/images/golem.svg" width="50%" style="display: block; margin: auto;" class="svg-img"/>
+</div>
+</div>
+]
+
+.pull-right[
+<div class="md-iphone-5 md-black-device" id="deminR" style="font-size: 0.5em; margin-top: -50px !important;">
+<div class="md-body">
+<div class="md-buttons"></div>
+<div class="md-front-camera"></div>
+<div class="md-top-speaker"></div>
+<div class="md-screen">
+<iframe width="100%" src="https://dgranjon.shinyapps.io/deminR" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+</div>
+<button class="md-home-button"></button>
+</div>
+</div>
+]
 
 ---
 class: inverse center title-slide middle

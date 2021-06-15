@@ -78,7 +78,7 @@ Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
 - 👩‍🏫 State of the art.
-- 👩‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
+- 👨‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 - ☕
 ]
@@ -151,7 +151,7 @@ class: header_background
   - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
-😿 Less performance than native. 
+😭 Less performance than native. 
 
 ---
 class: header_background 
@@ -224,6 +224,8 @@ class: header_background
 - `f7SingleLayout()`: one page app. 
 - `f7TabLayout()`: multi-tabs app.
 &lt;br/&gt;
+&lt;br/&gt;
+
 &lt;div class="form-check form-check-inline"&gt;
   &lt;input class="form-check-input" type="radio" name="layoutRadio" id="singleLayout" checked&gt;
   &lt;label class="form-check-label" for="singleLayout"&gt;single&lt;/label&gt;
@@ -262,31 +264,98 @@ class: header_background
 ]
 
 ---
-class: header_background 
 # Key features: Skins
 
-&lt;br/&gt;
-2 main skins:
+&lt;script&gt;
+  $('#skiniOS, #skinMd').on('click', function() {
+    $('#skiniOSDemo').toggle();
+    $('#skinMdDemo').toggle();
+  });
+&lt;/script&gt;
 
 .pull-left[
 - iOS.
+- Android.
 
-&lt;img src="assets/images/ios-skin.png" width="30%" style="display: block; margin: auto;" /&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+
+&lt;div class="form-check form-check-inline"&gt;
+  &lt;input class="form-check-input" type="radio" name="skinRadio" id="skiniOS" checked&gt;
+  &lt;label class="form-check-label" for="skiniOS"&gt;iOS&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="form-check form-check-inline"&gt;
+  &lt;input class="form-check-input" type="radio" name="skinRadio" id="skinMd"&gt;
+  &lt;label class="form-check-label" for="skinMd"&gt;md&lt;/label&gt;
+&lt;/div&gt;
+
 ]
 
 .pull-right[
-- Android (material design).
-&lt;img src="assets/images/android-skin.png" width="40%" style="display: block; margin: auto;" /&gt;
+&lt;div class="md-iphone-5 md-black-device" id="skiniOSDemo" style="font-size: 0.5em; margin-top: -50px !important;"&gt;
+&lt;div class="md-body"&gt;
+&lt;div class="md-buttons"&gt;&lt;/div&gt;
+&lt;div class="md-front-camera"&gt;&lt;/div&gt;
+&lt;div class="md-top-speaker"&gt;&lt;/div&gt;
+&lt;div class="md-screen"&gt;
+&lt;iframe width="100%" src="https://dgranjon.shinyapps.io/miniUI2Demo" allowfullscreen="" frameborder="0" scrolling="no" height="470px"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;button class="md-home-button"&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="md-iphone-5 md-black-device" id="skinMdDemo" style="font-size: 0.5em; margin-top: -50px !important; display: none;"&gt;
+&lt;div class="md-body"&gt;
+&lt;div class="md-buttons"&gt;&lt;/div&gt;
+&lt;div class="md-front-camera"&gt;&lt;/div&gt;
+&lt;div class="md-top-speaker"&gt;&lt;/div&gt;
+&lt;div class="md-screen"&gt;
+&lt;iframe width="100%" src="https://dgranjon.shinyapps.io/miniUI2DemoMd" allowfullscreen="" frameborder="0" scrolling="no" height="470px"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;button class="md-home-button"&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 ]
 
 
 ---
-class: header_background 
 # Key features: Themes
 
 &lt;br/&gt;
 2 themes:
 
+
+---
+# Demo app: {deminR}
+
+.pull-left[
+- {deminR}, 2020 Shiny Contest.
+- https://dgranjon.shinyapps.io/deminR
+- https://github.com/DivadNojnarg/deminR
+
+&lt;div class="row"&gt;
+&lt;div class="col"&gt;
+&lt;img src="assets/images/deminR.png" width="50%" style="display: block; margin: auto;" class="svg-img"/&gt;
+&lt;/div&gt;
+&lt;div class="col"&gt;
+&lt;img src="assets/images/golem.svg" width="50%" style="display: block; margin: auto;" class="svg-img"/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div class="md-iphone-5 md-black-device" id="deminR" style="font-size: 0.5em; margin-top: -50px !important;"&gt;
+&lt;div class="md-body"&gt;
+&lt;div class="md-buttons"&gt;&lt;/div&gt;
+&lt;div class="md-front-camera"&gt;&lt;/div&gt;
+&lt;div class="md-top-speaker"&gt;&lt;/div&gt;
+&lt;div class="md-screen"&gt;
+&lt;iframe width="100%" src="https://dgranjon.shinyapps.io/deminR" allowfullscreen="" frameborder="0" scrolling="no" height="470px"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;button class="md-home-button"&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+]
 
 ---
 class: inverse center title-slide middle
