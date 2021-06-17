@@ -56,6 +56,28 @@ xaringanExtra::use_extra_styles(
   hover_code_line = TRUE,         #<<
   mute_unhighlighted_code = TRUE  #<<
 )
+
+dark_demo_app <- processx::process$new(
+  "Rscript", 
+  c(
+    "-e",  
+    "thematic::thematic_shiny();
+     shiny::runApp('./assets/R/dark-demo', port = 3515)"
+  )
+)
+
+Sys.sleep(2)
+
+white_demo_app <- processx::process$new(
+  "Rscript", 
+  c(
+    "-e",  
+    "shiny::runApp('./assets/R/white-demo', port = 3516)"
+  )
+)
+
+Sys.sleep(2)
+
 ```
 
 ```{r js4shiny, echo=FALSE}
@@ -337,10 +359,46 @@ class: header_background
 
 ---
 # Key features: Themes
+<script>
+$('#themeSwitcher').on('click', function() {
+  $('#darkThemeDemo').toggle();
+  $('#whiteThemeDemo').toggle();
+});
+</script>
 
-<br/>
+.pull-left[
 2 themes:
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="themeSwitcher">
+  <label class="form-check-label" for="themeSwitcher">Default switch checkbox input</label>
+</div>
+]
 
+.pull-right[
+<div class="md-iphone-5 md-white-device" id="darkThemeDemo" style="font-size: 0.5em; margin-top: -50px !important;">
+<div class="md-body">
+<div class="md-buttons"></div>
+<div class="md-front-camera"></div>
+<div class="md-top-speaker"></div>
+<div class="md-screen">
+<iframe width="100%" src="http://127.0.0.1:3515" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+</div>
+<button class="md-home-button"></button>
+</div>
+</div>
+
+<div class="md-iphone-5 md-black-device" id="whiteThemeDemo" style="font-size: 0.5em; margin-top: -50px !important; display: none;">
+<div class="md-body">
+<div class="md-buttons"></div>
+<div class="md-front-camera"></div>
+<div class="md-top-speaker"></div>
+<div class="md-screen">
+<iframe width="100%" src="http://127.0.0.1:3516" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+</div>
+<button class="md-home-button"></button>
+</div>
+</div>
+]
 
 ---
 # Demo app: {deminR}

@@ -4,7 +4,7 @@
     <title>{shinyMobile} Hands-on</title>
     <meta charset="utf-8" />
     <meta name="author" content="SCC" />
-    <meta name="date" content="2021-06-15" />
+    <meta name="date" content="2021-06-17" />
     <link href="assets/libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view/tile-view.js"></script>
     <script src="assets/libs/clipboard/clipboard.min.js"></script>
@@ -43,7 +43,7 @@ class: inverse, center, title-slide, middle
 
 ## David Granjon
 
-### 2021-06-15
+### 2021-06-17
 
 
 
@@ -77,7 +77,7 @@ We're in for 2 hours of **fun**!
 Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
-- 👩‍🏫 State of the art.
+- 👨‍🏫 State of the art.
 - 👨‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 - ☕
@@ -151,7 +151,7 @@ class: header_background
   - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
-😭 Less performance than native. 
+😢 Less performance than native. 
 
 ---
 class: header_background 
@@ -320,10 +320,46 @@ class: header_background
 
 ---
 # Key features: Themes
+&lt;script&gt;
+$('#themeSwitcher').on('click', function() {
+  $('#darkThemeDemo').toggle();
+  $('#whiteThemeDemo').toggle();
+});
+&lt;/script&gt;
 
-&lt;br/&gt;
+.pull-left[
 2 themes:
+&lt;div class="form-check form-switch"&gt;
+  &lt;input class="form-check-input" type="checkbox" id="themeSwitcher"&gt;
+  &lt;label class="form-check-label" for="themeSwitcher"&gt;Default switch checkbox input&lt;/label&gt;
+&lt;/div&gt;
+]
 
+.pull-right[
+&lt;div class="md-iphone-5 md-white-device" id="darkThemeDemo" style="font-size: 0.5em; margin-top: -50px !important;"&gt;
+&lt;div class="md-body"&gt;
+&lt;div class="md-buttons"&gt;&lt;/div&gt;
+&lt;div class="md-front-camera"&gt;&lt;/div&gt;
+&lt;div class="md-top-speaker"&gt;&lt;/div&gt;
+&lt;div class="md-screen"&gt;
+&lt;iframe width="100%" src="http://127.0.0.1:3515" allowfullscreen="" frameborder="0" scrolling="no" height="470px"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;button class="md-home-button"&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="md-iphone-5 md-black-device" id="whiteThemeDemo" style="font-size: 0.5em; margin-top: -50px !important; display: none;"&gt;
+&lt;div class="md-body"&gt;
+&lt;div class="md-buttons"&gt;&lt;/div&gt;
+&lt;div class="md-front-camera"&gt;&lt;/div&gt;
+&lt;div class="md-top-speaker"&gt;&lt;/div&gt;
+&lt;div class="md-screen"&gt;
+&lt;iframe width="100%" src="http://127.0.0.1:3516" allowfullscreen="" frameborder="0" scrolling="no" height="470px"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;button class="md-home-button"&gt;&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+]
 
 ---
 # Demo app: {deminR}
