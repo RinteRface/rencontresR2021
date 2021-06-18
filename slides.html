@@ -4,7 +4,7 @@
     <title>{shinyMobile} Hands-on</title>
     <meta charset="utf-8" />
     <meta name="author" content="SCC" />
-    <meta name="date" content="2021-06-17" />
+    <meta name="date" content="2021-06-18" />
     <link href="assets/libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view/tile-view.js"></script>
     <script src="assets/libs/clipboard/clipboard.min.js"></script>
@@ -27,6 +27,8 @@
     <script src="assets/libs/js4shiny/jsonview/jsonview.min.js"></script>
     <link href="assets/libs/js4shiny-redirectConsoleLog/jslog.css" rel="stylesheet" />
     <script src="assets/libs/js4shiny-redirectConsoleLog/redirectConsoleLog.js"></script>
+    <link href="assets/libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="assets/libs/countdown/countdown.js"></script>
     <link rel="stylesheet" href="assets/css/js4shiny-xaringan-base.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/tachyons.min.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/js4shiny-xaringan-extra.css" type="text/css" />
@@ -43,7 +45,7 @@ class: inverse, center, title-slide, middle
 
 ## David Granjon
 
-### 2021-06-17
+### 2021-06-18
 
 
 
@@ -78,7 +80,7 @@ Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
 - 👨‍🏫 State of the art.
-- 👨‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
+- 👩‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 - ☕
 ]
@@ -120,7 +122,7 @@ class: header_background
   - Don't work __offline__.
 
 .center[
-Appearance is critical for end user. 💇
+Appearance is critical for end user. 💅
 ]  
 
 ---
@@ -214,6 +216,7 @@ class: header_background
 # Key features: Layout
 
 &lt;script&gt;
+$('#singleLayout').prop('checked', true);
   $('#singleLayout, #tabsLayout').on('click', function() {
     $('#singleLayoutDemo').toggle();
     $('#tabLayoutDemo').toggle();
@@ -227,7 +230,7 @@ class: header_background
 &lt;br/&gt;
 
 &lt;div class="form-check form-check-inline"&gt;
-  &lt;input class="form-check-input" type="radio" name="layoutRadio" id="singleLayout" checked&gt;
+  &lt;input class="form-check-input" type="radio" name="layoutRadio" id="singleLayout"&gt;
   &lt;label class="form-check-label" for="singleLayout"&gt;single&lt;/label&gt;
 &lt;/div&gt;
 &lt;div class="form-check form-check-inline"&gt;
@@ -267,6 +270,7 @@ class: header_background
 # Key features: Skins
 
 &lt;script&gt;
+  $('#skiniOS').prop('checked', true);
   $('#skiniOS, #skinMd').on('click', function() {
     $('#skiniOSDemo').toggle();
     $('#skinMdDemo').toggle();
@@ -281,7 +285,7 @@ class: header_background
 &lt;br/&gt;
 
 &lt;div class="form-check form-check-inline"&gt;
-  &lt;input class="form-check-input" type="radio" name="skinRadio" id="skiniOS" checked&gt;
+  &lt;input class="form-check-input" type="radio" name="skinRadio" id="skiniOS"&gt;
   &lt;label class="form-check-label" for="skiniOS"&gt;iOS&lt;/label&gt;
 &lt;/div&gt;
 &lt;div class="form-check form-check-inline"&gt;
@@ -321,6 +325,7 @@ class: header_background
 ---
 # Key features: Themes
 &lt;script&gt;
+$('#skiniOS').prop('checked', true);
 $('#themeSwitcher').on('click', function() {
   $('#darkThemeDemo').toggle();
   $('#whiteThemeDemo').toggle();
@@ -392,6 +397,194 @@ $('#themeSwitcher').on('click', function() {
 &lt;/div&gt;
 &lt;/div&gt;
 ]
+
+
+---
+# Do you want more? 
+
+---
+class: header_background
+# Initialize the project: {truelle}
+
+## We'll be using {golem} ...
+
+.center[
+&lt;img src="assets/images/golem.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/&gt;
+]
+
+--
+
+## ... {truelle} is a {golem} GUI generator 🧙‍♂️! 
+
+1. Open the RStudio Server.
+2. Run `truelle::run_app()`.
+3. Follow the steps.
+
+---
+class: header_background
+# {truelle}: project type
+
+Select __Package__ and choose the `{golem}` engine.
+
+&lt;img src="assets/images/truelle-project-type.png" width="50%" /&gt;&lt;img src="assets/images/truelle-project-engine.png" width="50%" /&gt;
+
+---
+class: header_background
+# {truelle}: Package options
+
+Provide a valid package path and review project options.
+
+&lt;img src="assets/images/truelle-package-options.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+class: header_background
+# {truelle}: UI template
+
+Select `{shinyMobile}` tabs layout. 
+
+&lt;img src="assets/images/truelle-ui-template.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+class: header_background
+# {truelle}: Run the output and enjoy 😎!
+
+Click on the 🎮 button or copy/paste 📸 the code to your terminal...
+
+&lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
+
+Congrats 🎉! We now have a production ready `{shinyMobile}` project.
+
+---
+class: header_background
+# {shinyMobile}: App preview
+
+.pull-left[
+- Let's open the new project.
+- Run `devtools::load_all()`.
+- Browse to `R/app_ui.R` (contains the global UI code).
+
+&lt;img src="assets/images/golem-global-ui.png" width="50%" style="display: block; margin: auto;" /&gt;
+]
+
+--
+.small.pull-right[
+- Run `run_app()` and note the provided __&lt;APP_URL&gt;__.
+- Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
+
+
+.center[
+&lt;img src="assets/images/shinyMobile-basic-app.png" width="30%" style="display: block; margin: auto;" class="svg-img"/&gt;
+]
+]
+
+---
+class: header_background
+# {shiny} VS {shinyMobile}: Main UI wrapper
+
+&lt;br&gt;
+
+.pull-left[
+&lt;img src="assets/images/shiny.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/&gt;
+
+.small[
+
+```r
+library(shiny)
+
+ui &lt;- fluidPage(
+  # ui logic
+)
+
+server &lt;- function(input, output, session) {
+  # server logic
+}
+
+shinyApp(ui, server)
+```
+]
+
+]
+
+.pull-right[
+&lt;img src="assets/images/shinyMobile.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/&gt;
+
+.small[
+
+```r
+library(shiny)
+*library(shinyMobile)
+
+*ui &lt;- f7Page(
+  # shinyMobile layout functions
+)
+
+server &lt;- function(input, output, session) {
+  # server logic
+}
+
+shinyApp(ui, server)
+```
+]
+
+]
+
+---
+class: header_background
+# {shinyMobile}: app options
+
+.pull-left[
+- `f7Page()` exposes an __options__ parameter.
+- Fine tune the app __appearance__ and __behavior__:
+  - Theme, colors, ...
+  - Dark mode (default to TRUE).
+  - __tapHold__ (WHAAAAT???).
+  - navbar and toolbar options 
+  - ...
+- Options inherited from [Framework7](https://v5.framework7.io/docs/app.html).
+]
+
+--
+
+.pull-right[
+## Your turn. 
+- Inspect the __app_ui.R__ code and experiment with some of the options.
+- Run `devtools::load_all()`.
+- Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
+]
+
+
+```{=html}
+&lt;div class="countdown" id="timer_60cd0f93" style="right:0;bottom:0;" data-warnwhen="0"&gt;
+&lt;code class="countdown-time"&gt;&lt;span class="countdown-digits minutes"&gt;02&lt;/span&gt;&lt;span class="countdown-digits colon"&gt;:&lt;/span&gt;&lt;span class="countdown-digits seconds"&gt;00&lt;/span&gt;&lt;/code&gt;
+&lt;/div&gt;
+```
+
+
+
+---
+class: header_background
+# {shinyMobile}: the tab layout
+
+.pull-left[
+We leverage the `f7TabLayout()` function:
+
+
+```r
+f7TabLayout(..., navbar, messagebar = NULL, panels = NULL, appbar = NULL)
+```
+
+- __navbar__ expects an `f7Navbar()`.
+- __...__ are the tabs `f7Tab()`.
+- We don't care about other parameters for now.
+]
+
+--
+
+.pull-right[
+## Your turn
+- Inspect the __app_ui.R__ code ...
+]
+
 
 ---
 class: inverse center title-slide middle

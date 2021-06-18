@@ -2,7 +2,7 @@
   background: inherit;
   position: absolute;
   cursor: pointer;
-  font-size: 50px;
+  font-size: 3em;
   line-height: 1;
   border-color: #ddd;
   border-width: 3px;
@@ -10,7 +10,7 @@
   border-radius: 15px;
   box-shadow: 0px 4px 10px 0px rgba(50, 50, 50, 0.4);
   -webkit-box-shadow: 0px 4px 10px 0px rgba(50, 50, 50, 0.4);
-  margin: 1em .2em;
+  margin: 0.6em;
   padding: 10px 15px;
   text-align: center;
 }
