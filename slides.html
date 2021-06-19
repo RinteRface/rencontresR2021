@@ -4,7 +4,7 @@
     <title>{shinyMobile} Hands-on</title>
     <meta charset="utf-8" />
     <meta name="author" content="SCC" />
-    <meta name="date" content="2021-06-18" />
+    <meta name="date" content="2021-06-19" />
     <link href="assets/libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view/tile-view.js"></script>
     <script src="assets/libs/clipboard/clipboard.min.js"></script>
@@ -27,8 +27,6 @@
     <script src="assets/libs/js4shiny/jsonview/jsonview.min.js"></script>
     <link href="assets/libs/js4shiny-redirectConsoleLog/jslog.css" rel="stylesheet" />
     <script src="assets/libs/js4shiny-redirectConsoleLog/redirectConsoleLog.js"></script>
-    <link href="assets/libs/countdown/countdown.css" rel="stylesheet" />
-    <script src="assets/libs/countdown/countdown.js"></script>
     <link rel="stylesheet" href="assets/css/js4shiny-xaringan-base.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/tachyons.min.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/js4shiny-xaringan-extra.css" type="text/css" />
@@ -45,7 +43,7 @@ class: inverse, center, title-slide, middle
 
 ## David Granjon
 
-### 2021-06-18
+### 2021-06-19
 
 
 
@@ -79,7 +77,7 @@ We're in for 2 hours of **fun**!
 Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
-- 👨‍🏫 State of the art.
+- 👩‍🏫 State of the art.
 - 👩‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 - ☕
@@ -153,7 +151,7 @@ class: header_background
   - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
-😢 Less performance than native. 
+😿 Less performance than native. 
 
 ---
 class: header_background 
@@ -400,16 +398,22 @@ $('#themeSwitcher').on('click', function() {
 
 
 ---
-# Do you want more? 
+class: center middle
+# Your turn 🧪! 
+
+&lt;img src="assets/images/excited-minions.gif" width="40%" style="display: block; margin: auto;" /&gt;
+
 
 ---
 class: header_background
 # Initialize the project: {truelle}
 
+&lt;br/&gt;
+
 ## We'll be using {golem} ...
 
 .center[
-&lt;img src="assets/images/golem.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/&gt;
+&lt;img src="assets/images/golem.svg" width="10%" style="display: block; margin: auto;" class="svg-img"/&gt;
 ]
 
 --
@@ -424,6 +428,8 @@ class: header_background
 class: header_background
 # {truelle}: project type
 
+&lt;br/&gt;
+
 Select __Package__ and choose the `{golem}` engine.
 
 &lt;img src="assets/images/truelle-project-type.png" width="50%" /&gt;&lt;img src="assets/images/truelle-project-engine.png" width="50%" /&gt;
@@ -431,6 +437,8 @@ Select __Package__ and choose the `{golem}` engine.
 ---
 class: header_background
 # {truelle}: Package options
+
+&lt;br/&gt;
 
 Provide a valid package path and review project options.
 
@@ -440,6 +448,8 @@ Provide a valid package path and review project options.
 class: header_background
 # {truelle}: UI template
 
+&lt;br/&gt;
+
 Select `{shinyMobile}` tabs layout. 
 
 &lt;img src="assets/images/truelle-ui-template.png" width="50%" style="display: block; margin: auto;" /&gt;
@@ -448,7 +458,9 @@ Select `{shinyMobile}` tabs layout.
 class: header_background
 # {truelle}: Run the output and enjoy 😎!
 
-Click on the 🎮 button or copy/paste 📸 the code to your terminal...
+&lt;br/&gt;
+
+Click on the ▶️ button or copy/paste 📷 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
@@ -457,6 +469,8 @@ Congrats 🎉! We now have a production ready `{shinyMobile}` project.
 ---
 class: header_background
 # {shinyMobile}: App preview
+
+&lt;br/&gt;
 
 .pull-left[
 - Let's open the new project.
@@ -505,6 +519,8 @@ shinyApp(ui, server)
 
 ]
 
+--
+
 .pull-right[
 &lt;img src="assets/images/shinyMobile.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/&gt;
 
@@ -532,7 +548,9 @@ shinyApp(ui, server)
 class: header_background
 # {shinyMobile}: app options
 
-.pull-left[
+&lt;br/&gt;
+
+.small.pull-left[
 - `f7Page()` exposes an __options__ parameter.
 - Fine tune the app __appearance__ and __behavior__:
   - Theme, colors, ...
@@ -545,27 +563,25 @@ class: header_background
 
 --
 
-.pull-right[
-## Your turn. 
+.small.pull-right[
+## Your turn 🥼
 - Inspect the __app_ui.R__ code and experiment with some of the options.
 - Run `devtools::load_all()`.
 - Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
 ]
 
-
-```{=html}
-&lt;div class="countdown" id="timer_60cd0f93" style="right:0;bottom:0;" data-warnwhen="0"&gt;
-&lt;code class="countdown-time"&gt;&lt;span class="countdown-digits minutes"&gt;02&lt;/span&gt;&lt;span class="countdown-digits colon"&gt;:&lt;/span&gt;&lt;span class="countdown-digits seconds"&gt;00&lt;/span&gt;&lt;/code&gt;
+&lt;div class="countdown" id="timer_60cd0f93" style="right:33%;bottom:0;" data-warnwhen="0"&gt;
+&lt;code class="countdown-time remark-inline-code"&gt;&lt;span class="countdown-digits minutes"&gt;02&lt;/span&gt;&lt;span class="countdown-digits colon"&gt;:&lt;/span&gt;&lt;span class="countdown-digits seconds"&gt;00&lt;/span&gt;&lt;/code&gt;
 &lt;/div&gt;
-```
-
 
 
 ---
 class: header_background
 # {shinyMobile}: the tab layout
 
-.pull-left[
+&lt;br/&gt;
+
+.small.pull-left[
 We leverage the `f7TabLayout()` function:
 
 
@@ -573,17 +589,102 @@ We leverage the `f7TabLayout()` function:
 f7TabLayout(..., navbar, messagebar = NULL, panels = NULL, appbar = NULL)
 ```
 
+- __...__ are the tabs contained in `f7Tabs()`.
+- `f7Tabs()` may host multiple `f7Tab()`.
 - __navbar__ expects an `f7Navbar()`.
-- __...__ are the tabs `f7Tab()`.
 - We don't care about other parameters for now.
 ]
 
 --
 
-.pull-right[
-## Your turn
-- Inspect the __app_ui.R__ code ...
+.small.pull-right[
+## Your turn 🧪
+- Inspect the __app_ui.R__ code and find the corresponding pieces.
+- Add a new `f7Tab()` element. Hint: `f7Tab(..., tabName, icon = NULL, active = FALSE, hidden = FALSE)`. 
+- Run `devtools::load_all()` and `run_app()`.
 ]
+
+
+---
+class: header_background
+# {shinyMobile}: the navbar
+
+&lt;br/&gt;
+
+.small.pull-left[
+`f7Navbar()`:
+
+  - Contains __title__, __subtitle__.
+  - Optional __subNavbar__ with `f7SubNavbar()`.
+  - Other parameters offer cosmetic options:
+    - shadow.
+    - horizontal line.
+    - transparent.
+    - ...
+]
+
+--
+
+.xsmall.pull-right[
+## Your turn 🥼
+- In __app_ui.R__, modify the navbar title.
+- Add a subtitle.
+- Add a `f7SubNavbar()` such as:
+
+
+```r
+f7SubNavbar(
+  f7Button(label = "My button"),
+  f7Button(label = "My button"),
+  f7Button(label = "My button")
+)
+```
+
+- Turn the __leftPanel__ and __rightPanel__ to `FALSE`.
+- Set __hairline__ to `FALSE`. 
+- Run `devtools::load_all()` and `run_app()`.
+
+]
+
+---
+class: header_background
+# {shinyMobile}: components
+
+&lt;br/&gt;
+
+.small.pull-left[
+`{shinyMobile}` exposes many components:
+
+  - Containers: `f7Card()`, `f7List()`, `f7Block()`, ...
+  - Inputs: `f7Text()`, `f7Checkbox()`, `f7Toggle()`, ...
+  - Notifications: `f7Notif()`, `f7Dialog()`, `f7ActionSheet()`, ...
+  - Buttons: `f7Button()`, `f7TabLink()`, ...
+  - Metric: `f7Gauge()`, `f7Progress()`, ...
+  
+
+Most of them can be updated server side!
+]
+
+--
+
+.xsmall.pull-right[
+## Your turn 🧪
+- In __app_ui.R__, add a new `f7ExpandableCard()` in the previously added `f7Tab()`.
+- Give it an __id__.
+- Below the card add a `f7Button("openCard", "Click me!")`.
+- In __app_server.R__ add this code, replacing `&lt;CARD_ID&gt;`:
+
+
+```r
+observeEvent(input$openCard, {
+  updateF7Card(id = &lt;CARD_ID&gt;)
+})
+```
+- Run `devtools::load_all()` and `run_app()`.
+]
+
+---
+class: end
 
 
 ---

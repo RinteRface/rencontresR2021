@@ -437,16 +437,24 @@ $('#themeSwitcher').on('click', function() {
 
 
 ---
-# Do you want more? 
+class: center middle
+# Your turn `r emo::ji("experiment")`! 
+
+```{r, echo = FALSE, out.width='40%', fig.align='center'}
+knitr::include_graphics("assets/images/excited-minions.gif")
+```
+
 
 ---
 class: header_background
 # Initialize the project: {truelle}
 
+<br/>
+
 ## We'll be using {golem} ...
 
 .center[
-<img src="assets/images/golem.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/>
+<img src="assets/images/golem.svg" width="10%" style="display: block; margin: auto;" class="svg-img"/>
 ]
 
 --
@@ -461,6 +469,8 @@ class: header_background
 class: header_background
 # {truelle}: project type
 
+<br/>
+
 Select __Package__ and choose the `{golem}` engine.
 
 ```{r, echo = FALSE, fig.show="hold", out.width="50%"}
@@ -472,6 +482,8 @@ knitr::include_graphics("assets/images/truelle-project-engine.png")
 class: header_background
 # {truelle}: Package options
 
+<br/>
+
 Provide a valid package path and review project options.
 
 ```{r, echo = FALSE, out.width='50%', fig.align='center'}
@@ -482,6 +494,8 @@ knitr::include_graphics("assets/images/truelle-package-options.png")
 class: header_background
 # {truelle}: UI template
 
+<br/>
+
 Select `{shinyMobile}` tabs layout. 
 
 ```{r, echo = FALSE, out.width='50%', fig.align='center'}
@@ -491,6 +505,8 @@ knitr::include_graphics("assets/images/truelle-ui-template.png")
 ---
 class: header_background
 # {truelle}: Run the output and enjoy `r emo::ji("sunglasses")`!
+
+<br/>
 
 Click on the `r emo::ji("play")` button or copy/paste `r emo::ji("photo")` the code to your terminal...
 
@@ -504,6 +520,8 @@ Congrats `r emo::ji("party")`! We now have a production ready `{shinyMobile}` pr
 ---
 class: header_background
 # {shinyMobile}: App preview
+
+<br/>
 
 .pull-left[
 - Let's open the new project.
@@ -553,6 +571,8 @@ shinyApp(ui, server)
 
 ]
 
+--
+
 .pull-right[
 <img src="assets/images/shinyMobile.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/>
 
@@ -579,7 +599,9 @@ shinyApp(ui, server)
 class: header_background
 # {shinyMobile}: app options
 
-.pull-left[
+<br/>
+
+.small.pull-left[
 - `f7Page()` exposes an __options__ parameter.
 - Fine tune the app __appearance__ and __behavior__:
   - Theme, colors, ...
@@ -592,38 +614,125 @@ class: header_background
 
 --
 
-.pull-right[
-## Your turn. 
+.small.pull-right[
+## Your turn `r emo::ji("experiment")`
 - Inspect the __app_ui.R__ code and experiment with some of the options.
 - Run `devtools::load_all()`.
 - Run `shinyMobile::preview_mobile(url = <APP_URL>, device = "iphone8")`.
 ]
 
-`r countdown::countdown(2)`
+<div class="countdown" id="timer_60cd0f93" style="right:33%;bottom:0;" data-warnwhen="0">
+<code class="countdown-time remark-inline-code"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 
 ---
 class: header_background
 # {shinyMobile}: the tab layout
 
-.pull-left[
+<br/>
+
+.small.pull-left[
 We leverage the `f7TabLayout()` function:
 
 ```{r, eval=FALSE}
 f7TabLayout(..., navbar, messagebar = NULL, panels = NULL, appbar = NULL)
 ```
 
+- __...__ are the tabs contained in `f7Tabs()`.
+- `f7Tabs()` may host multiple `f7Tab()`.
 - __navbar__ expects an `f7Navbar()`.
-- __...__ are the tabs `f7Tab()`.
 - We don't care about other parameters for now.
 ]
 
 --
 
-.pull-right[
-## Your turn
-- Inspect the __app_ui.R__ code ...
+.small.pull-right[
+## Your turn `r emo::ji("experiment")`
+- Inspect the __app_ui.R__ code and find the corresponding pieces.
+- Add a new `f7Tab()` element. Hint: `f7Tab(..., tabName, icon = NULL, active = FALSE, hidden = FALSE)`. 
+- Run `devtools::load_all()` and `run_app()`.
 ]
+
+
+---
+class: header_background
+# {shinyMobile}: the navbar
+
+<br/>
+
+.small.pull-left[
+`f7Navbar()`:
+
+  - Contains __title__, __subtitle__.
+  - Optional __subNavbar__ with `f7SubNavbar()`.
+  - Other parameters offer cosmetic options:
+    - shadow.
+    - horizontal line.
+    - transparent.
+    - ...
+]
+
+--
+
+.xsmall.pull-right[
+## Your turn `r emo::ji("experiment")`
+- In __app_ui.R__, modify the navbar title.
+- Add a subtitle.
+- Add a `f7SubNavbar()` such as:
+
+```{r, eval=FALSE}
+f7SubNavbar(
+  f7Button(label = "My button"),
+  f7Button(label = "My button"),
+  f7Button(label = "My button")
+)
+```
+
+- Turn the __leftPanel__ and __rightPanel__ to `FALSE`.
+- Set __hairline__ to `FALSE`. 
+- Run `devtools::load_all()` and `run_app()`.
+
+]
+
+---
+class: header_background
+# {shinyMobile}: components
+
+<br/>
+
+.small.pull-left[
+`{shinyMobile}` exposes many components:
+
+  - Containers: `f7Card()`, `f7List()`, `f7Block()`, ...
+  - Inputs: `f7Text()`, `f7Checkbox()`, `f7Toggle()`, ...
+  - Notifications: `f7Notif()`, `f7Dialog()`, `f7ActionSheet()`, ...
+  - Buttons: `f7Button()`, `f7TabLink()`, ...
+  - Metric: `f7Gauge()`, `f7Progress()`, ...
+  
+
+Most of them can be updated server side!
+]
+
+--
+
+.xsmall.pull-right[
+## Your turn `r emo::ji("experiment")`
+- In __app_ui.R__, add a new `f7ExpandableCard()` in the previously added `f7Tab()`.
+- Give it an __id__.
+- Below the card add a `f7Button("openCard", "Click me!")`.
+- In __app_server.R__ add this code, replacing `<CARD_ID>`:
+
+```{r, eval=FALSE}
+observeEvent(input$openCard, {
+  updateF7Card(id = <CARD_ID>)
+})
+```
+- Run `devtools::load_all()` and `run_app()`.
+]
+
+---
+class: end
 
 
 ---
