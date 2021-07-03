@@ -738,3 +738,183 @@ class: end
 ---
 class: inverse center title-slide middle
 # Part 2 Introduction to PWA with {shinyMobile}
+
+
+---
+class: header_background
+# Progressive web apps
+
+<br/>
+
+Progressive web apps or (PWA) improve classic web apps capabilities by obeying these three rules:
+
+1. Being __capable__: media control, file system access, …
+2. Being __reliable__: fast and usable __offline__. Transparent failures.
+3. Being __installable__: Standalone use, launch from user’s home screen.
+
+In the following we'll treat 2 and 3.
+
+
+---
+class: header_background
+# How can my app be installable?
+
+<br/>
+
+- The app must be served over __HTTPS__ (shinyapp.io, ...).
+- Include a __manifest__, that is a JSON file specifying app metadata (name, icons, ...).
+- Have a registered __service worker__, which can cache the app content and provide __offline__ support.
+
+```{r, echo = FALSE, out.width='40%', fig.align='center'}
+knitr::include_graphics("assets/images/alors_heureux.gif")
+```
+
+
+---
+class: header_background
+# What is a web manifest?
+
+A [JSON](https://web.dev/add-manifest/) file which can be interpreted by the web browser (Chrome, Safari, Firefox, Brave, ...).
+
+.pull-left[
+.xsmall[
+```js
+{
+  "name": "My Progressive Web App",
+  "short_name": "My App",
+  "description": "What it does!",
+  "lang": "en-US",
+  "start_url": "https://dgranjon.shinyapps.io/shinyMobileGolemTest/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "icons/icon-144.png",
+      "sizes": "144x144"
+    }
+  ],
+  ...
+}
+```
+]
+]
+
+.pull-right[
+.small[
+Most important fields:
+- __start_url__: where your app is hosted.
+- __display__: use __standalone__ for native look and feel. 
+- __icon__: an array pointing to icons (useful for favicon, launch screen ...) in the `www` folder.
+
+Check compatibility support [here](https://developer.mozilla.org/en-US/docs/Web/Manifest).
+]
+]
+
+In a Shiny app context, the manifest goes in `www`. 
+
+---
+class: header_background
+# The service worker
+
+Script run in the background by the web browser. 
+
+.pull-left[
+.xsmall[
+```js
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      // Setting {cache: 'reload'} in the new request will ensure that the
+      // response isn't fulfilled from the HTTP cache; i.e., it will be from
+      // the network.
+      await cache.add( new Request(OFFLINE_URL, { cache: "reload" }) );
+      await cache.add( new Request("framework7-5.7.14/css/framework7.bundle.min.css", { cache: "reload" }) );
+      await cache.add( new Request("framework7-5.7.14/js/framework7.bundle.min.js", { cache: "reload" }) );
+      await cache.add( new Request("shared/jquery.min.js", { cache: "reload" }) );
+    })()
+  );
+  // Force the waiting service worker to become the active service worker.
+  self.skipWaiting();
+});
+```
+]
+]
+
+.pull-right[
+.xsmall[
+Features:
+
+- Requires __HTTPS__.
+- Able to store app resources (CSS, JS, images, HTML, ...) in the application cache ...
+- ... Thereby making them available offline.
+- Many plug and play template here and there. 
+
+Script composed in 3 steps:
+
+- Installation + cache configuration (see left code).
+- Activation.
+- Fetch requests (fill the cache, ...)
+]
+]
+
+---
+class: header_background
+# Road to PWA 1: enable PWA
+
+<br/>
+
+Good new! 
+
+--
+
+`{shinyMobile}` is PWA ready.
+
+--
+
+Just turn on the `allowPWA` to `TRUE` in `f7Page()`. Under the hood, it adds all the required machinery 🧙.
+
+---
+class: header_background
+# Road to PWA 2: add PWA files
+
+<br/>
+
+Time consuming, need automated approach...
+
+--
+.small[
+.pull-left[
+We leverage the `{charpente}` package within our app folder:
+
+```{r, eval=FALSE}
+# Important to target the app folder.
+# Only work if app is in a package.
+# register_service_worker is FALSE, shinyMobile already does it.
+# We also don't need to create web dependencies. 
+charpente::set_pwa(
+  "inst/app", 
+  register_service_worker = FALSE,
+  create_dependencies = FALSE
+)
+```
+]
+]
+
+--
+
+.pull-right[
+This script:
+
+- Creates a web manifest.
+- Adds a service worker.
+- Adds placeholder icons (you may need to create your own later).
+- Adds an offline HTML template page.
+]
+
+You don't need to worry about anything.
+
+---
+class: header_background
+# Road to PWA 3: Handle the installation

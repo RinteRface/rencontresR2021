@@ -4,7 +4,7 @@
     <title>{shinyMobile} Hands-on</title>
     <meta charset="utf-8" />
     <meta name="author" content="SCC" />
-    <meta name="date" content="2021-06-19" />
+    <meta name="date" content="2021-07-03" />
     <link href="assets/libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view/tile-view.js"></script>
     <script src="assets/libs/clipboard/clipboard.min.js"></script>
@@ -43,7 +43,7 @@ class: inverse, center, title-slide, middle
 
 ## David Granjon
 
-### 2021-06-19
+### 2021-07-03
 
 
 
@@ -78,7 +78,7 @@ Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
 - 👩‍🏫 State of the art.
-- 👩‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
+- 👨‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 - ☕
 ]
@@ -399,7 +399,7 @@ $('#themeSwitcher').on('click', function() {
 
 ---
 class: center middle
-# Your turn 🧪! 
+# Your turn 🥼! 
 
 &lt;img src="assets/images/excited-minions.gif" width="40%" style="display: block; margin: auto;" /&gt;
 
@@ -460,7 +460,7 @@ class: header_background
 
 &lt;br/&gt;
 
-Click on the ▶️ button or copy/paste 📷 the code to your terminal...
+Click on the ⏯ button or copy/paste 📸 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
@@ -598,7 +598,7 @@ f7TabLayout(..., navbar, messagebar = NULL, panels = NULL, appbar = NULL)
 --
 
 .small.pull-right[
-## Your turn 🧪
+## Your turn 🥼
 - Inspect the __app_ui.R__ code and find the corresponding pieces.
 - Add a new `f7Tab()` element. Hint: `f7Tab(..., tabName, icon = NULL, active = FALSE, hidden = FALSE)`. 
 - Run `devtools::load_all()` and `run_app()`.
@@ -626,7 +626,7 @@ class: header_background
 --
 
 .xsmall.pull-right[
-## Your turn 🥼
+## Your turn 🧪
 - In __app_ui.R__, modify the navbar title.
 - Add a subtitle.
 - Add a `f7SubNavbar()` such as:
@@ -668,7 +668,7 @@ Most of them can be updated server side!
 --
 
 .xsmall.pull-right[
-## Your turn 🧪
+## Your turn 🥼
 - In __app_ui.R__, add a new `f7ExpandableCard()` in the previously added `f7Tab()`.
 - Give it an __id__.
 - Below the card add a `f7Button("openCard", "Click me!")`.
@@ -690,6 +690,185 @@ class: end
 ---
 class: inverse center title-slide middle
 # Part 2 Introduction to PWA with {shinyMobile}
+
+
+---
+class: header_background
+# Progressive web apps
+
+&lt;br/&gt;
+
+Progressive web apps or (PWA) improve classic web apps capabilities by obeying these three rules:
+
+1. Being __capable__: media control, file system access, …
+2. Being __reliable__: fast and usable __offline__. Transparent failures.
+3. Being __installable__: Standalone use, launch from user’s home screen.
+
+In the following we'll treat 2 and 3.
+
+
+---
+class: header_background
+# How can my app be installable?
+
+&lt;br/&gt;
+
+- The app must be served over __HTTPS__ (shinyapp.io, ...).
+- Include a __manifest__, that is a JSON file specifying app metadata (name, icons, ...).
+- Have a registered __service worker__, which can cache the app content and provide __offline__ support.
+
+&lt;img src="assets/images/alors_heureux.gif" width="40%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: header_background
+# What is a web manifest?
+
+A [JSON](https://web.dev/add-manifest/) file which can be interpreted by the web browser (Chrome, Safari, Firefox, Brave, ...).
+
+.pull-left[
+.xsmall[
+```js
+{
+  "name": "My Progressive Web App",
+  "short_name": "My App",
+  "description": "What it does!",
+  "lang": "en-US",
+  "start_url": "https://dgranjon.shinyapps.io/shinyMobileGolemTest/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "icons/icon-144.png",
+      "sizes": "144x144"
+    }
+  ],
+  ...
+}
+```
+]
+]
+
+.pull-right[
+.small[
+Most important fields:
+- __start_url__: where your app is hosted.
+- __display__: use __standalone__ for native look and feel. 
+- __icon__: an array pointing to icons (useful for favicon, launch screen ...) in the `www` folder.
+
+Check compatibility support [here](https://developer.mozilla.org/en-US/docs/Web/Manifest).
+]
+]
+
+In a Shiny app context, the manifest goes in `www`. 
+
+---
+class: header_background
+# The service worker
+
+Script run in the background by the web browser. 
+
+.pull-left[
+.xsmall[
+```js
+self.addEventListener("install", (event) =&gt; {
+  event.waitUntil(
+    (async () =&gt; {
+      const cache = await caches.open(CACHE_NAME);
+      // Setting {cache: 'reload'} in the new request will ensure that the
+      // response isn't fulfilled from the HTTP cache; i.e., it will be from
+      // the network.
+      await cache.add( new Request(OFFLINE_URL, { cache: "reload" }) );
+      await cache.add( new Request("framework7-5.7.14/css/framework7.bundle.min.css", { cache: "reload" }) );
+      await cache.add( new Request("framework7-5.7.14/js/framework7.bundle.min.js", { cache: "reload" }) );
+      await cache.add( new Request("shared/jquery.min.js", { cache: "reload" }) );
+    })()
+  );
+  // Force the waiting service worker to become the active service worker.
+  self.skipWaiting();
+});
+```
+]
+]
+
+.pull-right[
+.xsmall[
+Features:
+
+- Requires __HTTPS__.
+- Able to store app resources (CSS, JS, images, HTML, ...) in the application cache ...
+- ... Thereby making them available offline.
+- Many plug and play template here and there. 
+
+Script composed in 3 steps:
+
+- Installation + cache configuration (see left code).
+- Activation.
+- Fetch requests (fill the cache, ...)
+]
+]
+
+---
+class: header_background
+# Road to PWA 1: enable PWA
+
+&lt;br/&gt;
+
+Good new! 
+
+--
+
+`{shinyMobile}` is PWA ready.
+
+--
+
+Just turn on the `allowPWA` to `TRUE` in `f7Page()`. Under the hood, it adds all the required machinery 🧙.
+
+---
+class: header_background
+# Road to PWA 2: add PWA files
+
+&lt;br/&gt;
+
+Time consuming, need automated approach...
+
+--
+.small[
+.pull-left[
+We leverage the `{charpente}` package within our app folder:
+
+
+```r
+# Important to target the app folder.
+# Only work if app is in a package.
+# register_service_worker is FALSE, shinyMobile already does it.
+# We also don't need to create web dependencies. 
+charpente::set_pwa(
+  "inst/app", 
+  register_service_worker = FALSE,
+  create_dependencies = FALSE
+)
+```
+]
+]
+
+--
+
+.pull-right[
+This script:
+
+- Creates a web manifest.
+- Adds a service worker.
+- Adds placeholder icons (you may need to create your own later).
+- Adds an offline HTML template page.
+]
+
+You don't need to worry about anything.
+
+---
+class: header_background
+# Road to PWA 4: Handle the installation
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="assets/js/remark-latest.min.js"></script>
