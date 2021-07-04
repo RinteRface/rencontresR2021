@@ -4,7 +4,7 @@
     <title>{shinyMobile} Hands-on</title>
     <meta charset="utf-8" />
     <meta name="author" content="SCC" />
-    <meta name="date" content="2021-07-03" />
+    <meta name="date" content="2021-07-04" />
     <link href="assets/libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view/tile-view.js"></script>
     <script src="assets/libs/clipboard/clipboard.min.js"></script>
@@ -43,7 +43,7 @@ class: inverse, center, title-slide, middle
 
 ## David Granjon
 
-### 2021-07-03
+### 2021-07-04
 
 
 
@@ -77,7 +77,7 @@ We're in for 2 hours of **fun**!
 Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
-- 👩‍🏫 State of the art.
+- 👨‍🏫 State of the art.
 - 👨‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 - ☕
@@ -151,7 +151,7 @@ class: header_background
   - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
-😿 Less performance than native. 
+😢 Less performance than native. 
 
 ---
 class: header_background 
@@ -399,7 +399,7 @@ $('#themeSwitcher').on('click', function() {
 
 ---
 class: center middle
-# Your turn 🥼! 
+# Your turn 🧪! 
 
 &lt;img src="assets/images/excited-minions.gif" width="40%" style="display: block; margin: auto;" /&gt;
 
@@ -460,7 +460,7 @@ class: header_background
 
 &lt;br/&gt;
 
-Click on the ⏯ button or copy/paste 📸 the code to your terminal...
+Click on the 🎮 button or copy/paste 📷 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
@@ -598,7 +598,7 @@ f7TabLayout(..., navbar, messagebar = NULL, panels = NULL, appbar = NULL)
 --
 
 .small.pull-right[
-## Your turn 🥼
+## Your turn 🧪
 - Inspect the __app_ui.R__ code and find the corresponding pieces.
 - Add a new `f7Tab()` element. Hint: `f7Tab(..., tabName, icon = NULL, active = FALSE, hidden = FALSE)`. 
 - Run `devtools::load_all()` and `run_app()`.
@@ -724,6 +724,8 @@ class: header_background
 class: header_background
 # What is a web manifest?
 
+&lt;br/&gt;
+
 A [JSON](https://web.dev/add-manifest/) file which can be interpreted by the web browser (Chrome, Safari, Firefox, Brave, ...).
 
 .pull-left[
@@ -766,6 +768,7 @@ In a Shiny app context, the manifest goes in `www`.
 ---
 class: header_background
 # The service worker
+&lt;br/&gt;
 
 Script run in the background by the web browser. 
 
@@ -781,8 +784,7 @@ self.addEventListener("install", (event) =&gt; {
       // the network.
       await cache.add( new Request(OFFLINE_URL, { cache: "reload" }) );
       await cache.add( new Request("framework7-5.7.14/css/framework7.bundle.min.css", { cache: "reload" }) );
-      await cache.add( new Request("framework7-5.7.14/js/framework7.bundle.min.js", { cache: "reload" }) );
-      await cache.add( new Request("shared/jquery.min.js", { cache: "reload" }) );
+      // add other resources to cache below
     })()
   );
   // Force the waiting service worker to become the active service worker.
@@ -811,7 +813,7 @@ Script composed in 3 steps:
 
 ---
 class: header_background
-# Road to PWA 1: enable PWA
+# Road to PWA : enable PWA
 
 &lt;br/&gt;
 
@@ -827,17 +829,15 @@ Just turn on the `allowPWA` to `TRUE` in `f7Page()`. Under the hood, it adds all
 
 ---
 class: header_background
-# Road to PWA 2: add PWA files
+# Road to PWA : add PWA files (1/2)
 
 &lt;br/&gt;
 
-Time consuming, need automated approach...
+Time consuming, need __automated__ approach... The below scripts:
 
 --
 .small[
 .pull-left[
-We leverage the `{charpente}` package within our app folder:
-
 
 ```r
 # Important to target the app folder.
@@ -856,19 +856,107 @@ charpente::set_pwa(
 --
 
 .pull-right[
-This script:
-
-- Creates a web manifest.
-- Adds a service worker.
+- Creates a __web manifest__.
+- Adds a __service worker__.
 - Adds placeholder icons (you may need to create your own later).
-- Adds an offline HTML template page.
+- Adds an __offline__ HTML template page.
 ]
-
-You don't need to worry about anything.
 
 ---
 class: header_background
-# Road to PWA 4: Handle the installation
+# Road to PWA: add PWA files (2/2)
+
+&lt;br/&gt;
+
+Create the PWA assets in your current shinyMobile project.
+
+## Your turn 🧪
+- Run `charpente::set_pwa` inside your project.
+- Check the `www` folder content.
+- Run `devtools::load_all()` and `run_app()`.
+
+
+---
+class: header_background
+# Road to PWA: Check your app (1/2)
+
+&lt;br/&gt;
+
+.pull-left[
+.small[
+## Your turn 🥼
+
+- Deploy your app to `shinyapps.io` or browse to `https://dgranjon.shinyapps.io/shinyMobileGolemTest`.
+- Open the Chrome developer tools: ⌥ + ⌘ + I (Mac), ctrl + shift + I (windows).
+- Follow the steps showed in the figure (in red).
+- Click on `Generate report` and wait.
+]
+]
+
+.pull-right[
+&lt;br/&gt;
+&lt;img src="assets/images/html_inspector_audit.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+class: header_background
+# Road to PWA: Check your app (2/2)
+
+&lt;br/&gt;
+
+We aim to see the __installable__ property in green.
+
+&lt;img src="assets/images/lighthouse_audit_result.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+class: header_background
+# Road to PWA : handle the installation
+
+&lt;br/&gt;
+
+If the app is not already installed, you should be prompted to install it (.xsmall[Installed apps can be accessed under `chrome://apps/`]).
+
+.pull-left[
+## Desktop
+&lt;video width="80%"&gt;
+&lt;source src="assets/movies/pwa-install-desktop.mov" type="video/mp4"&gt;
+&lt;/video&gt;
+]
+
+
+.pull-right[
+## iOS
+&lt;video width="80%"&gt;
+&lt;source src="assets/movies/pwa-install-ios.mov" type="video/mp4"&gt;
+&lt;/video&gt;
+]
+
+--
+
+## Your turn 🧪
+Install the deployed app.
+
+---
+class: header_background
+# Road to PWA: play around
+
+&lt;br/&gt;
+
+## Your turn 🥼
+- Create a desktop shortcut.
+- Launch the app.
+- Disable the internet connection.
+- Reload the page and observe. 
+- Re-activate internet and reload the app.
+
+
+---
+class: header_background
+# Road to PWA: What's next?
+
+- Improve the offline HTML page.
+- Take this [course](https://web.dev/progressive-web-apps/).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="assets/js/remark-latest.min.js"></script>
