@@ -4,7 +4,7 @@
     <title>{shinyMobile} Hands-on</title>
     <meta charset="utf-8" />
     <meta name="author" content="SCC" />
-    <meta name="date" content="2021-07-04" />
+    <meta name="date" content="2021-07-05" />
     <link href="assets/libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view/tile-view.js"></script>
     <script src="assets/libs/clipboard/clipboard.min.js"></script>
@@ -43,7 +43,7 @@ class: inverse, center, title-slide, middle
 
 ## David Granjon
 
-### 2021-07-04
+### 2021-07-05
 
 
 
@@ -77,8 +77,8 @@ We're in for 2 hours of **fun**!
 Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
-- 👨‍🏫 State of the art.
-- 👨‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
+- 👩‍🏫 State of the art.
+- 👩‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 - ☕
 ]
@@ -97,10 +97,14 @@ Learning objectives:
 ---
 # Workshop Material
 
-- Slides: TBD ...
+- [Slides](https://github.com/RinteRface/rencontresR2021).
+- Sandbox [app](https://dgranjon.shinyapps.io/shinyMobileGolemTest/).
+- Book "Outstanding user Interfaces with Shiny": [intro](https://unleash-shiny.rinterface.com/mobile-shiny-intro.html) and [pwa](https://unleash-shiny.rinterface.com/mobile-pwa.html). 
 
 ## Prerequisites
-- ...
+- Preliminary experience with `{shiny}`.
+- Basic knowledge about R packages may help. 
+- Be curious. 
 
 ---
 class: inverse center title-slide middle
@@ -151,7 +155,7 @@ class: header_background
   - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
-😢 Less performance than native. 
+😿 Less performance than native. 
 
 ---
 class: header_background 
@@ -460,11 +464,11 @@ class: header_background
 
 &lt;br/&gt;
 
-Click on the 🎮 button or copy/paste 📷 the code to your terminal...
+Click on the ⏯ button or copy/paste 📷 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
-Congrats 🎉! We now have a production ready `{shinyMobile}` project.
+Congrats 🥳! We now have a production ready `{shinyMobile}` project.
 
 ---
 class: header_background
@@ -564,7 +568,7 @@ class: header_background
 --
 
 .small.pull-right[
-## Your turn 🥼
+## Your turn 🧪
 - Inspect the __app_ui.R__ code and experiment with some of the options.
 - Run `devtools::load_all()`.
 - Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
@@ -626,7 +630,7 @@ class: header_background
 --
 
 .xsmall.pull-right[
-## Your turn 🧪
+## Your turn 🥼
 - In __app_ui.R__, modify the navbar title.
 - Add a subtitle.
 - Add a `f7SubNavbar()` such as:
@@ -684,7 +688,7 @@ observeEvent(input$openCard, {
 ]
 
 ---
-class: end
+class: end_part_1
 
 
 ---
@@ -915,27 +919,16 @@ class: header_background
 
 &lt;br/&gt;
 
-If the app is not already installed, you should be prompted to install it (.xsmall[Installed apps can be accessed under `chrome://apps/`]).
-
 .pull-left[
 ## Desktop
-&lt;video width="80%"&gt;
-&lt;source src="assets/movies/pwa-install-desktop.mov" type="video/mp4"&gt;
-&lt;/video&gt;
+&lt;img src="assets/images/pwa-install-desktop.gif" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 
 .pull-right[
 ## iOS
-&lt;video width="80%"&gt;
-&lt;source src="assets/movies/pwa-install-ios.mov" type="video/mp4"&gt;
-&lt;/video&gt;
+&lt;img src="assets/images/pwa-install-ios.gif" width="40%" style="display: block; margin: auto;" /&gt;
 ]
-
---
-
-## Your turn 🧪
-Install the deployed app.
 
 ---
 class: header_background
@@ -943,20 +936,31 @@ class: header_background
 
 &lt;br/&gt;
 
-## Your turn 🥼
+## Your turn 🧪
+- Install the deployed app.
 - Create a desktop shortcut.
 - Launch the app.
 - Disable the internet connection.
 - Reload the page and observe. 
 - Re-activate internet and reload the app.
 
+--
+
+.xsmall[Installed apps can be accessed under `chrome://apps/`]
 
 ---
 class: header_background
 # Road to PWA: What's next?
 
+&lt;br/&gt;
+
 - Improve the offline HTML page.
 - Take this [course](https://web.dev/progressive-web-apps/).
+- PWA shortcuts (Windows, Android support). 
+
+
+---
+class: end_part_2
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="assets/js/remark-latest.min.js"></script>

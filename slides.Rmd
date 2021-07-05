@@ -132,10 +132,14 @@ Learning objectives:
 ---
 # Workshop Material
 
-- Slides: TBD ...
+- [Slides](https://github.com/RinteRface/rencontresR2021).
+- Sandbox [app](https://dgranjon.shinyapps.io/shinyMobileGolemTest/).
+- Book "Outstanding user Interfaces with Shiny": [intro](https://unleash-shiny.rinterface.com/mobile-shiny-intro.html) and [pwa](https://unleash-shiny.rinterface.com/mobile-pwa.html). 
 
 ## Prerequisites
-- ...
+- Preliminary experience with `{shiny}`.
+- Basic knowledge about R packages may help. 
+- Be curious. 
 
 ---
 class: inverse center title-slide middle
@@ -732,7 +736,7 @@ observeEvent(input$openCard, {
 ]
 
 ---
-class: end
+class: end_part_1
 
 
 ---
@@ -968,27 +972,20 @@ class: header_background
 
 <br/>
 
-If the app is not already installed, you should be prompted to install it (.xsmall[Installed apps can be accessed under `chrome://apps/`]).
-
 .pull-left[
 ## Desktop
-<video width="80%">
-<source src="assets/movies/pwa-install-desktop.mov" type="video/mp4">
-</video>
+```{r, echo = FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("assets/images/pwa-install-desktop.gif")
+```
 ]
 
 
 .pull-right[
 ## iOS
-<video width="80%">
-<source src="assets/movies/pwa-install-ios.mov" type="video/mp4">
-</video>
+```{r, echo = FALSE, out.width='40%', fig.align='center'}
+knitr::include_graphics("assets/images/pwa-install-ios.gif")
+```
 ]
-
---
-
-## Your turn `r emo::ji("experiment")`
-Install the deployed app.
 
 ---
 class: header_background
@@ -997,16 +994,27 @@ class: header_background
 <br/>
 
 ## Your turn `r emo::ji("experiment")`
+- Install the deployed app.
 - Create a desktop shortcut.
 - Launch the app.
 - Disable the internet connection.
 - Reload the page and observe. 
 - Re-activate internet and reload the app.
 
+--
+
+.xsmall[Installed apps can be accessed under `chrome://apps/`]
 
 ---
 class: header_background
 # Road to PWA: What's next?
 
+<br/>
+
 - Improve the offline HTML page.
 - Take this [course](https://web.dev/progressive-web-apps/).
+- PWA shortcuts (Windows, Android support). 
+
+
+---
+class: end_part_2

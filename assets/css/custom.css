@@ -35,8 +35,13 @@ img:not(.svg-img) {
 }
 
 /* background image */
-.end {
+.end_part_1 {
   background-image: url(../images/unicorn.gif);
+  background-size: cover;
+}
+
+.end_part_2 {
+  background-image: url(../images/cat.gif);
   background-size: cover;
 }
 
