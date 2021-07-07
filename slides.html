@@ -4,7 +4,7 @@
     <title>{shinyMobile} Hands-on</title>
     <meta charset="utf-8" />
     <meta name="author" content="SCC" />
-    <meta name="date" content="2021-07-05" />
+    <meta name="date" content="2021-07-07" />
     <link href="assets/libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view/tile-view.js"></script>
     <script src="assets/libs/clipboard/clipboard.min.js"></script>
@@ -43,7 +43,7 @@ class: inverse, center, title-slide, middle
 
 ## David Granjon
 
-### 2021-07-05
+### 2021-07-07
 
 
 
@@ -77,7 +77,7 @@ We're in for 2 hours of **fun**!
 Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
-- 👩‍🏫 State of the art.
+- 👨‍🏫 State of the art.
 - 👩‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 - ☕
@@ -124,7 +124,7 @@ class: header_background
   - Don't work __offline__.
 
 .center[
-Appearance is critical for end user. 💅
+Appearance is critical for end user. 💇
 ]  
 
 ---
@@ -145,7 +145,7 @@ Well ... it's quite complex:
 
 ---
 class: header_background
-# Progressive web apps
+# Progressive web apps (PWA)
 
 &lt;br/&gt;
 ## Take some advantages of both worlds:
@@ -155,7 +155,7 @@ class: header_background
   - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
-😿 Less performance than native. 
+😞 Less performance than native. 
 
 ---
 class: header_background 
@@ -194,25 +194,14 @@ class: header_background
 Built on top of the [Framework7](https://framework7.io/) web framework.
 
 .pull-left[
-- Native look and feel.
+- Native look and feel for iOS and Android
 - PWA support.
-- ...
+- ... also works for desktop apps 😏
 ]
 
 .pull-right[
 &lt;img src="assets/images/shinyMobile.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/&gt;
 ]
-
----
-class: header_background 
-# Key features
-
-- Layout
-- Skins
-- Themes
-- Components
-- ...
-
 
 ---
 # Key features: Layout
@@ -464,11 +453,11 @@ class: header_background
 
 &lt;br/&gt;
 
-Click on the ⏯ button or copy/paste 📷 the code to your terminal...
+Click on the ⏯ button or copy/paste 📸 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
-Congrats 🥳! We now have a production ready `{shinyMobile}` project.
+Congrats 🎉! We now have a production ready `{shinyMobile}` project.
 
 ---
 class: header_background
@@ -602,7 +591,7 @@ f7TabLayout(..., navbar, messagebar = NULL, panels = NULL, appbar = NULL)
 --
 
 .small.pull-right[
-## Your turn 🧪
+## Your turn 🥼
 - Inspect the __app_ui.R__ code and find the corresponding pieces.
 - Add a new `f7Tab()` element. Hint: `f7Tab(..., tabName, icon = NULL, active = FALSE, hidden = FALSE)`. 
 - Run `devtools::load_all()` and `run_app()`.
@@ -630,7 +619,7 @@ class: header_background
 --
 
 .xsmall.pull-right[
-## Your turn 🥼
+## Your turn 🧪
 - In __app_ui.R__, modify the navbar title.
 - Add a subtitle.
 - Add a `f7SubNavbar()` such as:
@@ -874,7 +863,7 @@ class: header_background
 
 Create the PWA assets in your current shinyMobile project.
 
-## Your turn 🧪
+## Your turn 🥼
 - Run `charpente::set_pwa` inside your project.
 - Check the `www` folder content.
 - Run `devtools::load_all()` and `run_app()`.
@@ -888,7 +877,7 @@ class: header_background
 
 .pull-left[
 .small[
-## Your turn 🥼
+## Your turn 🧪
 
 - Deploy your app to `shinyapps.io` or browse to `https://dgranjon.shinyapps.io/shinyMobileGolemTest`.
 - Open the Chrome developer tools: ⌥ + ⌘ + I (Mac), ctrl + shift + I (windows).

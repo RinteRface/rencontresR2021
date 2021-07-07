@@ -180,7 +180,7 @@ Well ... it's quite complex:
 
 ---
 class: header_background
-# Progressive web apps
+# Progressive web apps (PWA)
 
 <br/>
 ## Take some advantages of both worlds:
@@ -233,25 +233,14 @@ class: header_background
 Built on top of the [Framework7](https://framework7.io/) web framework.
 
 .pull-left[
-- Native look and feel.
+- Native look and feel for iOS and Android
 - PWA support.
-- ...
+- ... also works for desktop apps 😏
 ]
 
 .pull-right[
 <img src="assets/images/shinyMobile.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/>
 ]
-
----
-class: header_background 
-# Key features
-
-- Layout
-- Skins
-- Themes
-- Components
-- ...
-
 
 ---
 # Key features: Layout
