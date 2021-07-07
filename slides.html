@@ -78,7 +78,7 @@ Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
 - 👨‍🏫 State of the art.
-- 👩‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
+- 👨‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 - ☕
 ]
@@ -155,7 +155,7 @@ class: header_background
   - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
-😞 Less performance than native. 
+😭 Less performance than native. 
 
 ---
 class: header_background 
@@ -398,6 +398,11 @@ class: center middle
 
 
 ---
+class: inverse center title-slide middle
+# Part 2 Project setup
+
+
+---
 class: header_background
 # Initialize the project: {truelle}
 
@@ -453,11 +458,15 @@ class: header_background
 
 &lt;br/&gt;
 
-Click on the ⏯ button or copy/paste 📸 the code to your terminal...
+Click on the 🎮 button or copy/paste 📸 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
-Congrats 🎉! We now have a production ready `{shinyMobile}` project.
+Congrats 🎂! We now have a production ready `{shinyMobile}` project.
+
+---
+class: inverse center title-slide middle
+# Part 3 {shinyMobile}'s main features
 
 ---
 class: header_background
@@ -474,8 +483,8 @@ class: header_background
 ]
 
 --
-.small.pull-right[
-- Run `run_app()` and note the provided __&lt;APP_URL&gt;__.
+.xsmall.pull-right[
+- Run `run_app()` and note the provided `&lt;APP_URL&gt;`.
 - Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
 
 
@@ -557,7 +566,7 @@ class: header_background
 --
 
 .small.pull-right[
-## Your turn 🧪
+## Your turn 🥼
 - Inspect the __app_ui.R__ code and experiment with some of the options.
 - Run `devtools::load_all()`.
 - Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
@@ -591,7 +600,7 @@ f7TabLayout(..., navbar, messagebar = NULL, panels = NULL, appbar = NULL)
 --
 
 .small.pull-right[
-## Your turn 🥼
+## Your turn 🧪
 - Inspect the __app_ui.R__ code and find the corresponding pieces.
 - Add a new `f7Tab()` element. Hint: `f7Tab(..., tabName, icon = NULL, active = FALSE, hidden = FALSE)`. 
 - Run `devtools::load_all()` and `run_app()`.
@@ -682,7 +691,7 @@ class: end_part_1
 
 ---
 class: inverse center title-slide middle
-# Part 2 Introduction to PWA with {shinyMobile}
+# Part 4 Introduction to PWA with {shinyMobile}
 
 
 ---
@@ -820,6 +829,44 @@ Good new!
 
 Just turn on the `allowPWA` to `TRUE` in `f7Page()`. Under the hood, it adds all the required machinery 🧙.
 
+
+---
+class: header_background
+# Road to PWA : Modify {golem} package
+
+&lt;br/&gt;
+
+.pull-left[
+## Your turn 🥼
+- Open `./R/app_ui.R`.
+- Scroll down to the `golem_add_external_resources` function.
+- Comment out the code as shown on the left (to avoid conflicts with `{shinyMobile}` PWA assets).
+]
+
+
+.small.pull-right[
+
+```r
+golem_add_external_resources &lt;- function(){
+  
+  #add_resource_path(
+  #  'www', app_sys('app/www')
+  #)
+ 
+  tags$head(
+    #favicon(),
+    #bundle_resources(
+    #  path = app_sys('app/www'),
+    #  app_title = 'shinyexample'
+    #)
+    # Add here other external resources
+    # for example, you can add shinyalert::useShinyalert() 
+  )
+}
+```
+]
+
+
 ---
 class: header_background
 # Road to PWA : add PWA files (1/2)
@@ -877,7 +924,7 @@ class: header_background
 
 .pull-left[
 .small[
-## Your turn 🧪
+## Your turn 🥼
 
 - Deploy your app to `shinyapps.io` or browse to `https://dgranjon.shinyapps.io/shinyMobileGolemTest`.
 - Open the Chrome developer tools: ⌥ + ⌘ + I (Mac), ctrl + shift + I (windows).

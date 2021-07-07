@@ -439,6 +439,11 @@ knitr::include_graphics("assets/images/excited-minions.gif")
 
 
 ---
+class: inverse center title-slide middle
+# Part 2 Project setup
+
+
+---
 class: header_background
 # Initialize the project: {truelle}
 
@@ -511,6 +516,10 @@ knitr::include_graphics("assets/images/golem-package-structure.png")
 Congrats `r emo::ji("party")`! We now have a production ready `{shinyMobile}` project.
 
 ---
+class: inverse center title-slide middle
+# Part 3 {shinyMobile}'s main features
+
+---
 class: header_background
 # {shinyMobile}: App preview
 
@@ -527,8 +536,8 @@ knitr::include_graphics("assets/images/golem-global-ui.png")
 ]
 
 --
-.small.pull-right[
-- Run `run_app()` and note the provided __<APP_URL>__.
+.xsmall.pull-right[
+- Run `run_app()` and note the provided `<APP_URL>`.
 - Run `shinyMobile::preview_mobile(url = <APP_URL>, device = "iphone8")`.
 
 
@@ -730,7 +739,7 @@ class: end_part_1
 
 ---
 class: inverse center title-slide middle
-# Part 2 Introduction to PWA with {shinyMobile}
+# Part 4 Introduction to PWA with {shinyMobile}
 
 
 ---
@@ -869,6 +878,43 @@ Good new!
 --
 
 Just turn on the `allowPWA` to `TRUE` in `f7Page()`. Under the hood, it adds all the required machinery 🧙.
+
+
+---
+class: header_background
+# Road to PWA : Modify {golem} package
+
+<br/>
+
+.pull-left[
+## Your turn `r emo::ji("experiment")`
+- Open `./R/app_ui.R`.
+- Scroll down to the `golem_add_external_resources` function.
+- Comment out the code as shown on the left (to avoid conflicts with `{shinyMobile}` PWA assets).
+]
+
+
+.small.pull-right[
+```{r, eval=FALSE}
+golem_add_external_resources <- function(){
+  
+  #add_resource_path(
+  #  'www', app_sys('app/www')
+  #)
+ 
+  tags$head(
+    #favicon(),
+    #bundle_resources(
+    #  path = app_sys('app/www'),
+    #  app_title = 'shinyexample'
+    #)
+    # Add here other external resources
+    # for example, you can add shinyalert::useShinyalert() 
+  )
+}
+```
+]
+
 
 ---
 class: header_background
