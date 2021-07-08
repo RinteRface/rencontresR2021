@@ -77,7 +77,7 @@ We're in for 2 hours of **fun**!
 Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
-- 👩‍🏫 State of the art.
+- 👨‍🏫 State of the art.
 - 👩‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 ]
@@ -86,7 +86,7 @@ Learning objectives:
 Discover progressive web apps (PWA) and create a simple example, built on top the previous part. 
 
 Learning objectives:
-- Discover what is a progressive web app
+- Discover what is a progressive web app.
 - Step by step development.
 - Overview of what are the next steps and limitations. 
 
@@ -122,6 +122,8 @@ class: header_background
   - Harder to focus if __not fullscreen__. 
   - Don't work __offline__.
 
+&lt;br/&gt;
+--
 .center[
 Appearance is critical for end user. 💇
 ]  
@@ -138,6 +140,8 @@ Well ... it's quite complex:
   - Know multiple languages: Java, Swift, ...
   - Maintain multiple code bases.
 
+&lt;br/&gt;
+--
 .center[
 ❓ Isn't there something simpler? 
 ]
@@ -154,14 +158,18 @@ class: header_background
   - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
-😢 Less performance than native. 
+&lt;br/&gt;
+--
+.center[
+😞 Less performance than native. 
+]
 
 ---
 class: header_background 
 # Mobile app development and {shiny}?
 
 &lt;br/&gt;
-Let's be honest, there is __almost nothing__.
+Let's be honest, there is __almost nothing__ 😭.
 
 .pull-left[
 - Many shiny apps are not optimized for mobile. 
@@ -409,8 +417,11 @@ class: header_background
 
 ## We'll be using {golem} ...
 
-.center[
-&lt;img src="assets/images/golem.svg" width="10%" style="display: block; margin: auto;" class="svg-img"/&gt;
+.pull-left[
+&lt;img src="assets/images/golem.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/&gt;
+]
+.pull-right[
+&lt;img src="assets/images/truelle.png" width="20%" style="display: block; margin: auto;" class="svg-img"/&gt;
 ]
 
 --
@@ -457,11 +468,11 @@ class: header_background
 
 &lt;br/&gt;
 
-Click on the 🎮 button or copy/paste 📷 the code to your terminal...
+Click on the ▶️ button or copy/paste 📷 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
-Congrats 🎉! We now have a production ready `{shinyMobile}` project.
+Congrats 🎂! We now have a production ready `{shinyMobile}` project.
 
 ---
 class: inverse center title-slide middle
@@ -571,11 +582,6 @@ class: header_background
 - Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
 ]
 
-&lt;div class="countdown" id="timer_60cd0f93" style="right:33%;bottom:0;" data-warnwhen="0"&gt;
-&lt;code class="countdown-time remark-inline-code"&gt;&lt;span class="countdown-digits minutes"&gt;02&lt;/span&gt;&lt;span class="countdown-digits colon"&gt;:&lt;/span&gt;&lt;span class="countdown-digits seconds"&gt;00&lt;/span&gt;&lt;/code&gt;
-&lt;/div&gt;
-
-
 ---
 class: header_background
 # {shinyMobile}: the tab layout
@@ -627,7 +633,7 @@ class: header_background
 --
 
 .xsmall.pull-right[
-## Your turn 🥼
+## Your turn 🧪
 - In __app_ui.R__, modify the navbar title.
 - Add a subtitle.
 - Add a `f7SubNavbar()` such as:
@@ -669,7 +675,7 @@ Most of them can be updated server side!
 --
 
 .xsmall.pull-right[
-## Your turn 🧪
+## Your turn 🥼
 - In __app_ui.R__, add a new `f7ExpandableCard()` in the previously added `f7Tab()`.
 - Give it an __id__.
 - Below the card add a `f7Button("openCard", "Click me!")`.
@@ -840,7 +846,7 @@ class: header_background
 &lt;br/&gt;
 
 .pull-left[
-## Your turn 🥼
+## Your turn 🧪
 - Open `./R/app_ui.R`.
 - Scroll down to the `golem_add_external_resources` function.
 - Comment out the code as shown on the left (to avoid conflicts with `{shinyMobile}` PWA assets).
@@ -959,7 +965,7 @@ class: header_background
 &lt;br/&gt;
 
 .pull-left[
-## Your turn 🧪
+## Your turn 🥼
 - Open the Chrome developer tools: ⌥ + ⌘ + I (Mac), ctrl + shift + I (windows).
 - Follow the steps showed in the figure (in red).
 - Check that `offline.html` and JS/CSS files are cached (necessary for offline support).
@@ -995,11 +1001,11 @@ class: header_background
 &lt;br/&gt;
 
 .pull-left[
-## Your turn 🧪
+## Your turn 🥼
 - Install the deployed app.
 - Create a desktop shortcut.
 - Launch the app.
-- Emulate disabled network connection (Don't shutdown your wifi! See figure 🤣).
+- Emulate disabled network connection (Don't shutdown your wifi! See figure 😄).
 - Reload the page and observe. 
 - Re-activate internet and reload the app.
 ]

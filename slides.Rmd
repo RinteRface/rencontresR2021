@@ -99,7 +99,7 @@ Learning objectives:
 Discover progressive web apps (PWA) and create a simple example, built on top the previous part. 
 
 Learning objectives:
-- Discover what is a progressive web app
+- Discover what is a progressive web app.
 - Step by step development.
 - Overview of what are the next steps and limitations. 
 
@@ -135,6 +135,8 @@ class: header_background
   - Harder to focus if __not fullscreen__. 
   - Don't work __offline__.
 
+<br/>
+--
 .center[
 Appearance is critical for end user. `r emo::ji("beauty")`
 ]  
@@ -151,6 +153,8 @@ Well ... it's quite complex:
   - Know multiple languages: Java, Swift, ...
   - Maintain multiple code bases.
 
+<br/>
+--
 .center[
 `r emo::ji("question")` Isn't there something simpler? 
 ]
@@ -167,14 +171,18 @@ class: header_background
   - Provide __offline__ features (don't expect too much).
   - One code base (web languages).
 
+<br/>
+--
+.center[
 `r emo::ji("sad")` Less performance than native. 
+]
 
 ---
 class: header_background 
 # Mobile app development and {shiny}?
 
 <br/>
-Let's be honest, there is __almost nothing__.
+Let's be honest, there is __almost nothing__ `r emo::ji("sob")`.
 
 .pull-left[
 - Many shiny apps are not optimized for mobile. 
@@ -428,8 +436,11 @@ class: header_background
 
 ## We'll be using {golem} ...
 
-.center[
-<img src="assets/images/golem.svg" width="10%" style="display: block; margin: auto;" class="svg-img"/>
+.pull-left[
+<img src="assets/images/golem.svg" width="20%" style="display: block; margin: auto;" class="svg-img"/>
+]
+.pull-right[
+<img src="assets/images/truelle.png" width="20%" style="display: block; margin: auto;" class="svg-img"/>
 ]
 
 --
@@ -599,11 +610,6 @@ class: header_background
 - Run `devtools::load_all()`.
 - Run `shinyMobile::preview_mobile(url = <APP_URL>, device = "iphone8")`.
 ]
-
-<div class="countdown" id="timer_60cd0f93" style="right:33%;bottom:0;" data-warnwhen="0">
-<code class="countdown-time remark-inline-code"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-
 
 ---
 class: header_background
