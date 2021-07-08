@@ -4,7 +4,7 @@
     <title>{shinyMobile} Hands-on</title>
     <meta charset="utf-8" />
     <meta name="author" content="SCC" />
-    <meta name="date" content="2021-07-07" />
+    <meta name="date" content="2021-07-08" />
     <link href="assets/libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="assets/libs/tile-view/tile-view.js"></script>
     <script src="assets/libs/clipboard/clipboard.min.js"></script>
@@ -43,7 +43,7 @@ class: inverse, center, title-slide, middle
 
 ## David Granjon
 
-### 2021-07-07
+### 2021-07-08
 
 
 
@@ -80,16 +80,15 @@ Learning objectives:
 - 👨‍🏫 State of the art.
 - 👨‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
-- ☕
 ]
 
 .panel[.panel-name[Partie 2]
 Discover progressive web apps (PWA) and create a simple example, built on top the previous part. 
 
 Learning objectives:
-- What is a progressive web app?
+- Discover what is a progressive web app
 - Step by step development.
-- ☕
+- Overview of what are the next steps and limitations. 
 
 ]
 ]
@@ -108,7 +107,7 @@ Learning objectives:
 
 ---
 class: inverse center title-slide middle
-# Part 1 Introduction to {shinyMobile}
+# Part 1.1 Introduction to {shinyMobile}
 
 
 ---
@@ -124,7 +123,7 @@ class: header_background
   - Don't work __offline__.
 
 .center[
-Appearance is critical for end user. 💇
+Appearance is critical for end user. 💅
 ]  
 
 ---
@@ -399,7 +398,7 @@ class: center middle
 
 ---
 class: inverse center title-slide middle
-# Part 2 Project setup
+# Part 1.2 Project setup
 
 
 ---
@@ -458,15 +457,15 @@ class: header_background
 
 &lt;br/&gt;
 
-Click on the 🎮 button or copy/paste 📸 the code to your terminal...
+Click on the ⏯ button or copy/paste 📷 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
-Congrats 🎂! We now have a production ready `{shinyMobile}` project.
+Congrats 🎉! We now have a production ready `{shinyMobile}` project.
 
 ---
 class: inverse center title-slide middle
-# Part 3 {shinyMobile}'s main features
+# Part 1.3 {shinyMobile}'s main features
 
 ---
 class: header_background
@@ -566,7 +565,7 @@ class: header_background
 --
 
 .small.pull-right[
-## Your turn 🥼
+## Your turn 🧪
 - Inspect the __app_ui.R__ code and experiment with some of the options.
 - Run `devtools::load_all()`.
 - Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
@@ -691,7 +690,7 @@ class: end_part_1
 
 ---
 class: inverse center title-slide middle
-# Part 4 Introduction to PWA with {shinyMobile}
+# Part 2.1 Introduction to PWA
 
 
 ---
@@ -814,6 +813,10 @@ Script composed in 3 steps:
 ]
 
 ---
+class: inverse center title-slide middle
+# Part 2.2 Develop a PWA with {shinyMobile}
+
+---
 class: header_background
 # Road to PWA : enable PWA
 
@@ -837,7 +840,7 @@ class: header_background
 &lt;br/&gt;
 
 .pull-left[
-## Your turn 🥼
+## Your turn 🧪
 - Open `./R/app_ui.R`.
 - Scroll down to the `golem_add_external_resources` function.
 - Comment out the code as shown on the left (to avoid conflicts with `{shinyMobile}` PWA assets).
@@ -924,7 +927,7 @@ class: header_background
 
 .pull-left[
 .small[
-## Your turn 🥼
+## Your turn 🧪
 
 - Deploy your app to `shinyapps.io` or browse to `https://dgranjon.shinyapps.io/shinyMobileGolemTest`.
 - Open the Chrome developer tools: ⌥ + ⌘ + I (Mac), ctrl + shift + I (windows).
