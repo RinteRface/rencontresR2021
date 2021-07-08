@@ -77,8 +77,8 @@ We're in for 2 hours of **fun**!
 Mobile app development with `{shiny}`, `{golem}` et `{shinyMobile}`
 
 Learning objectives:
-- 👨‍🏫 State of the art.
-- 👨‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
+- 👩‍🏫 State of the art.
+- 👩‍🏫 `{shinyMobile}` introduction: components, templates, themes ...
 - Setup a production app.
 ]
 
@@ -391,7 +391,7 @@ $('#themeSwitcher').on('click', function() {
 
 ---
 class: center middle
-# Your turn 🧪! 
+# Your turn 🥼! 
 
 &lt;img src="assets/images/excited-minions.gif" width="40%" style="display: block; margin: auto;" /&gt;
 
@@ -457,7 +457,7 @@ class: header_background
 
 &lt;br/&gt;
 
-Click on the ⏯ button or copy/paste 📷 the code to your terminal...
+Click on the 🎮 button or copy/paste 📸 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
@@ -565,7 +565,7 @@ class: header_background
 --
 
 .small.pull-right[
-## Your turn 🧪
+## Your turn 🥼
 - Inspect the __app_ui.R__ code and experiment with some of the options.
 - Run `devtools::load_all()`.
 - Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
@@ -599,7 +599,7 @@ f7TabLayout(..., navbar, messagebar = NULL, panels = NULL, appbar = NULL)
 --
 
 .small.pull-right[
-## Your turn 🧪
+## Your turn 🥼
 - Inspect the __app_ui.R__ code and find the corresponding pieces.
 - Add a new `f7Tab()` element. Hint: `f7Tab(..., tabName, icon = NULL, active = FALSE, hidden = FALSE)`. 
 - Run `devtools::load_all()` and `run_app()`.
@@ -840,7 +840,7 @@ class: header_background
 &lt;br/&gt;
 
 .pull-left[
-## Your turn 🧪
+## Your turn 🥼
 - Open `./R/app_ui.R`.
 - Scroll down to the `golem_add_external_resources` function.
 - Comment out the code as shown on the left (to avoid conflicts with `{shinyMobile}` PWA assets).
@@ -913,7 +913,7 @@ class: header_background
 
 Create the PWA assets in your current shinyMobile project.
 
-## Your turn 🥼
+## Your turn 🧪
 - Run `charpente::set_pwa` inside your project.
 - Check the `www` folder content.
 - Run `devtools::load_all()` and `run_app()`.
@@ -921,13 +921,13 @@ Create the PWA assets in your current shinyMobile project.
 
 ---
 class: header_background
-# Road to PWA: Check your app (1/2)
+# Road to PWA: Check your app (1/3)
 
 &lt;br/&gt;
 
 .pull-left[
 .small[
-## Your turn 🧪
+## Your turn 🥼
 
 - Deploy your app to `shinyapps.io` or browse to `https://dgranjon.shinyapps.io/shinyMobileGolemTest`.
 - Open the Chrome developer tools: ⌥ + ⌘ + I (Mac), ctrl + shift + I (windows).
@@ -944,13 +944,31 @@ class: header_background
 
 ---
 class: header_background
-# Road to PWA: Check your app (2/2)
+# Road to PWA: Check your app (2/3)
 
 &lt;br/&gt;
 
 We aim to see the __installable__ property in green.
 
 &lt;img src="assets/images/lighthouse_audit_result.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+class: header_background
+# Road to PWA: Check your app (3/3)
+
+&lt;br/&gt;
+
+.pull-left[
+## Your turn 🧪
+- Open the Chrome developer tools: ⌥ + ⌘ + I (Mac), ctrl + shift + I (windows).
+- Follow the steps showed in the figure (in red).
+- Check that `offline.html` and JS/CSS files are cached (necessary for offline support).
+]
+
+.pull-right[
+&lt;br/&gt;
+&lt;img src="assets/images/html-inspector-cache.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 class: header_background
@@ -969,19 +987,27 @@ class: header_background
 &lt;img src="assets/images/pwa-install-ios.gif" width="40%" style="display: block; margin: auto;" /&gt;
 ]
 
+
 ---
 class: header_background
 # Road to PWA: play around
 
 &lt;br/&gt;
 
-## Your turn 🧪
+.pull-left[
+## Your turn 🥼
 - Install the deployed app.
 - Create a desktop shortcut.
 - Launch the app.
-- Disable the internet connection.
+- Disable the network (Don't shutdown your wifi! See figure 🤣).
 - Reload the page and observe. 
 - Re-activate internet and reload the app.
+]
+
+.pull-right[
+&lt;br/&gt;
+&lt;img src="assets/images/pwa-disable-network.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
 
 --
 
