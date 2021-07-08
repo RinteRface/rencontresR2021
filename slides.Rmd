@@ -1057,7 +1057,7 @@ class: header_background
 - Install the deployed app.
 - Create a desktop shortcut.
 - Launch the app.
-- Disable the network (Don't shutdown your wifi! See figure `r emo::ji("laugh")`).
+- Emulate disabled network connection (Don't shutdown your wifi! See figure `r emo::ji("laugh")`).
 - Reload the page and observe. 
 - Re-activate internet and reload the app.
 ]
