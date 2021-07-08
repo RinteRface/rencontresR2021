@@ -17,7 +17,8 @@ shinyApp(
       iosTranslucentBars = FALSE, 
       navbar = list(iosCenterTitle = TRUE, hideOnPageScroll = TRUE), 
       toolbar = list(hideOnPageScroll = FALSE), 
-      pullToRefresh = FALSE),
+      pullToRefresh = FALSE
+    ),
     f7TabLayout(
       tags$head(
         tags$script(
