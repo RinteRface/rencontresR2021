@@ -161,7 +161,7 @@ class: header_background
 &lt;br/&gt;
 --
 .center[
-😿 Less performance than native. 
+😢 Less performance than native. 
 ]
 
 ---
@@ -399,7 +399,7 @@ $('#themeSwitcher').on('click', function() {
 
 ---
 class: center middle
-# Your turn 🧪! 
+# Your turn 🥼! 
 
 &lt;img src="assets/images/excited-minions.gif" width="40%" style="display: block; margin: auto;" /&gt;
 
@@ -468,7 +468,7 @@ class: header_background
 
 &lt;br/&gt;
 
-Click on the ▶️ button or copy/paste 📷 the code to your terminal...
+Click on the ⏯ button or copy/paste 📸 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
@@ -484,18 +484,43 @@ class: header_background
 
 &lt;br/&gt;
 
-.pull-left[
-- Let's open the new project.
-- Run `devtools::load_all()`.
-- Browse to `R/app_ui.R` (contains the global UI code).
+## Your turn 🧪
 
-&lt;img src="assets/images/golem-global-ui.png" width="50%" style="display: block; margin: auto;" /&gt;
+.pull-left[
+- `{shinyMobile}` allows app preview (local or remote).
+- __Remote__ preview:
+
+```r
+shinyMobile::preview_mobile(
+  url = "https://connect.thinkr.fr/shinyMobile1/", 
+  device = "iphone8"
+)
+```
 ]
 
 --
 .xsmall.pull-right[
-- Run `run_app()` and note the provided `&lt;APP_URL&gt;`.
-- Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
+- Open the new project.
+- Run `devtools::load_all()`.
+- Run the app in a separate R process (only works with __local__ RStudio):
+
+
+```r
+processx::process$new(
+  "Rscript",
+  c("-e",
+    sprintf(
+      "thematic::thematic_shiny();
+      shiny::runApp('%s', port = %s)",
+      "./inst/app", 3434
+    )
+  )
+)
+shinyMobile::preview_mobile(
+  url = "https://localhost:3434", 
+  device = "iphone8"
+)
+```
 
 
 .center[
@@ -568,7 +593,7 @@ class: header_background
   - Theme, colors, ...
   - Dark mode (default to TRUE).
   - __tapHold__ (WHAAAAT???).
-  - navbar and toolbar options 
+  - navbar and toolbar options.
   - ...
 - Options inherited from [Framework7](https://v5.framework7.io/docs/app.html).
 ]
@@ -576,10 +601,9 @@ class: header_background
 --
 
 .small.pull-right[
-## Your turn 🥼
+## Your turn 🧪
 - Inspect the __app_ui.R__ code and experiment with some of the options.
-- Run `devtools::load_all()`.
-- Run `shinyMobile::preview_mobile(url = &lt;APP_URL&gt;, device = "iphone8")`.
+- Run `devtools::load_all()` and `run_app()`.
 ]
 
 ---
@@ -605,8 +629,8 @@ f7TabLayout(..., navbar, messagebar = NULL, panels = NULL, appbar = NULL)
 --
 
 .small.pull-right[
-## Your turn 🥼
-- Inspect the __app_ui.R__ code and find the corresponding pieces.
+## Your turn 🧪
+- Inspect the __./R/app_ui.R__ code and find the corresponding pieces.
 - Add a new `f7Tab()` element. Hint: `f7Tab(..., tabName, icon = NULL, active = FALSE, hidden = FALSE)`. 
 - Run `devtools::load_all()` and `run_app()`.
 ]
@@ -633,8 +657,8 @@ class: header_background
 --
 
 .xsmall.pull-right[
-## Your turn 🧪
-- In __app_ui.R__, modify the navbar title.
+## Your turn 🥼
+- In __./R/app_ui.R__, modify the navbar title.
 - Add a subtitle.
 - Add a `f7SubNavbar()` such as:
 
@@ -675,11 +699,11 @@ Most of them can be updated server side!
 --
 
 .xsmall.pull-right[
-## Your turn 🥼
-- In __app_ui.R__, add a new `f7ExpandableCard()` in the previously added `f7Tab()`.
+## Your turn 🧪
+- In __./R/app_ui.R__, add a new `f7ExpandableCard()` in the previously added `f7Tab()`.
 - Give it an __id__.
 - Below the card add a `f7Button("openCard", "Click me!")`.
-- In __app_server.R__ add this code, replacing `&lt;CARD_ID&gt;`:
+- In __./R/app_server.R__ add this code, replacing `&lt;CARD_ID&gt;`:
 
 
 ```r
@@ -810,7 +834,7 @@ Features:
 - ... Thereby making them available offline.
 - Many plug and play template here and there. 
 
-Script composed in 3 steps:
+Script composed of 3 steps:
 
 - Installation + cache configuration (see left code).
 - Activation.
@@ -828,11 +852,11 @@ class: header_background
 
 &lt;br/&gt;
 
-Good new! 
+Good new 😆! 
 
 --
 
-`{shinyMobile}` is PWA ready.
+`{shinyMobile}` is PWA ready 😎.
 
 --
 
@@ -933,7 +957,7 @@ class: header_background
 
 .pull-left[
 .small[
-## Your turn 🥼
+## Your turn 🧪
 
 - Deploy your app to `shinyapps.io` or browse to `https://dgranjon.shinyapps.io/shinyMobileGolemTest`.
 - Open the Chrome developer tools: ⌥ + ⌘ + I (Mac), ctrl + shift + I (windows).
@@ -1001,11 +1025,11 @@ class: header_background
 &lt;br/&gt;
 
 .pull-left[
-## Your turn 🥼
+## Your turn 🧪
 - Install the deployed app.
 - Create a desktop shortcut.
 - Launch the app.
-- Emulate disabled network connection (Don't shutdown your wifi! See figure 😂).
+- Emulate disabled network connection (Don't shutdown your wifi! See figure 🤣).
 - Reload the page and observe. 
 - Re-activate internet and reload the app.
 ]

@@ -513,20 +513,41 @@ class: header_background
 
 <br/>
 
-.pull-left[
-- Let's open the new project.
-- Run `devtools::load_all()`.
-- Browse to `R/app_ui.R` (contains the global UI code).
+## Your turn `r emo::ji("experiment")`
 
-```{r, echo = FALSE, out.width='50%', fig.align='center'}
-knitr::include_graphics("assets/images/golem-global-ui.png")
+.pull-left[
+- `{shinyMobile}` allows app preview (local or remote).
+- __Remote__ preview:
+```{r, eval=FALSE}
+shinyMobile::preview_mobile(
+  url = "https://connect.thinkr.fr/shinyMobile1/", 
+  device = "iphone8"
+)
 ```
 ]
 
 --
 .xsmall.pull-right[
-- Run `run_app()` and note the provided `<APP_URL>`.
-- Run `shinyMobile::preview_mobile(url = <APP_URL>, device = "iphone8")`.
+- Open the new project.
+- Run `devtools::load_all()`.
+- Run the app in a separate R process (only works with __local__ RStudio):
+
+```{r, eval=FALSE}
+processx::process$new(
+  "Rscript",
+  c("-e",
+    sprintf(
+      "thematic::thematic_shiny();
+      shiny::runApp('%s', port = %s)",
+      "./inst/app", 3434
+    )
+  )
+)
+shinyMobile::preview_mobile(
+  url = "https://localhost:3434", 
+  device = "iphone8"
+)
+```
 
 
 .center[
@@ -597,7 +618,7 @@ class: header_background
   - Theme, colors, ...
   - Dark mode (default to TRUE).
   - __tapHold__ (WHAAAAT???).
-  - navbar and toolbar options 
+  - navbar and toolbar options.
   - ...
 - Options inherited from [Framework7](https://v5.framework7.io/docs/app.html).
 ]
@@ -607,8 +628,7 @@ class: header_background
 .small.pull-right[
 ## Your turn `r emo::ji("experiment")`
 - Inspect the __app_ui.R__ code and experiment with some of the options.
-- Run `devtools::load_all()`.
-- Run `shinyMobile::preview_mobile(url = <APP_URL>, device = "iphone8")`.
+- Run `devtools::load_all()` and `run_app()`.
 ]
 
 ---
@@ -634,7 +654,7 @@ f7TabLayout(..., navbar, messagebar = NULL, panels = NULL, appbar = NULL)
 
 .small.pull-right[
 ## Your turn `r emo::ji("experiment")`
-- Inspect the __app_ui.R__ code and find the corresponding pieces.
+- Inspect the __./R/app_ui.R__ code and find the corresponding pieces.
 - Add a new `f7Tab()` element. Hint: `f7Tab(..., tabName, icon = NULL, active = FALSE, hidden = FALSE)`. 
 - Run `devtools::load_all()` and `run_app()`.
 ]
@@ -662,7 +682,7 @@ class: header_background
 
 .xsmall.pull-right[
 ## Your turn `r emo::ji("experiment")`
-- In __app_ui.R__, modify the navbar title.
+- In __./R/app_ui.R__, modify the navbar title.
 - Add a subtitle.
 - Add a `f7SubNavbar()` such as:
 
@@ -703,10 +723,10 @@ Most of them can be updated server side!
 
 .xsmall.pull-right[
 ## Your turn `r emo::ji("experiment")`
-- In __app_ui.R__, add a new `f7ExpandableCard()` in the previously added `f7Tab()`.
+- In __./R/app_ui.R__, add a new `f7ExpandableCard()` in the previously added `f7Tab()`.
 - Give it an __id__.
 - Below the card add a `f7Button("openCard", "Click me!")`.
-- In __app_server.R__ add this code, replacing `<CARD_ID>`:
+- In __./R/app_server.R__ add this code, replacing `<CARD_ID>`:
 
 ```{r, eval=FALSE}
 observeEvent(input$openCard, {
@@ -838,7 +858,7 @@ Features:
 - ... Thereby making them available offline.
 - Many plug and play template here and there. 
 
-Script composed in 3 steps:
+Script composed of 3 steps:
 
 - Installation + cache configuration (see left code).
 - Activation.
@@ -856,11 +876,11 @@ class: header_background
 
 <br/>
 
-Good new! 
+Good new `r emo::ji("happy")`! 
 
 --
 
-`{shinyMobile}` is PWA ready.
+`{shinyMobile}` is PWA ready `r emo::ji("sunglasses")`.
 
 --
 
