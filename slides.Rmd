@@ -33,6 +33,7 @@ class: inverse, center, title-slide, middle
 ## David Granjon
 
 ### `r Sys.Date()`
+### Hosted by <img class="svg-img" src="./assets/images/THINKR.png">
 
 ```{r setup, include=FALSE}
 library(emo)
@@ -544,7 +545,7 @@ processx::process$new(
   )
 )
 shinyMobile::preview_mobile(
-  url = "https://localhost:3434", 
+  url = "http://localhost:3434", 
   device = "iphone8"
 )
 ```
@@ -627,7 +628,7 @@ class: header_background
 
 .small.pull-right[
 ## Your turn `r emo::ji("experiment")`
-- Inspect the __app_ui.R__ code and experiment with some of the options.
+- Inspect the __./R/app_ui.R__ code and experiment with some of the options.
 - Run `devtools::load_all()` and `run_app()`.
 ]
 
@@ -893,11 +894,12 @@ class: header_background
 
 <br/>
 
-.pull-left[
+.small.pull-left[
 ## Your turn `r emo::ji("experiment")`
 - Open `./R/app_ui.R`.
 - Scroll down to the `golem_add_external_resources` function.
 - Comment out the code as shown on the left (to avoid conflicts with `{shinyMobile}` PWA assets).
+- Call `golem::add_ui_server_files()`.
 ]
 
 
@@ -963,12 +965,27 @@ class: header_background
 
 <br/>
 
-Create the PWA assets in your current `{shinyMobile}` project.
-
+.xsmall.pull-left[
 ## Your turn `r emo::ji("experiment")`
-- Run `charpente::set_pwa` inside your project.
-- Check the `www` folder content.
+- Run `charpente::set_pwa("inst/app", register_service_worker = FALSE, create_dependencies = FALSE)` inside your project.
 - Run `devtools::load_all()` and `run_app()`.
+- Once the RStudio viewer opens, click on `Open in Browser`.
+- Note the app <sup>URL</sup>: `https://baka.thinkr.fr/<CONTAINER_ID>/rstudio/p/<RSTUDIO_TOKEN>/`.
+- Copy it in the `./inst/app/www/manifest.webmanifest` __start_url__ field. 
+]
+
+.pull-right[
+<br/>
+```{r, echo = FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics("assets/images/bakACode.png")
+```
+]
+
+
+.xsmall.footnote[
+This workshop is hosted by [ThinkR](https://thinkr.fr/) on a dedicated server. If you are working locally, first deploy your app to a secure server (with __HTTPS__ like [shinyapps.io](https://www.shinyapps.io/)). PWA features __don't work__ locally!!!
+]
+
 
 
 ---
@@ -980,8 +997,8 @@ class: header_background
 .pull-left[
 .small[
 ## Your turn `r emo::ji("experiment")`
-
-- Deploy your app to `shinyapps.io` or browse to `https://dgranjon.shinyapps.io/shinyMobileGolemTest`.
+- App is already running in Chrome.
+- If __App does not work__: use `https://dgranjon.shinyapps.io/shinyMobileGolemTest`.
 - Open the Chrome developer tools: ⌥ + ⌘ + I (Mac), ctrl + shift + I (windows).
 - Follow the steps showed in the figure (in red).
 - Click on `Generate report` and wait.

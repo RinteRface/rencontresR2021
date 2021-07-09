@@ -44,6 +44,7 @@ class: inverse, center, title-slide, middle
 ## David Granjon
 
 ### 2021-07-09
+### Hosted by &lt;img class="svg-img" src="./assets/images/THINKR.png"&gt;
 
 
 
@@ -125,7 +126,7 @@ class: header_background
 &lt;br/&gt;
 --
 .center[
-Appearance is critical for end user. 💅
+Appearance is critical for end user. 💇
 ]  
 
 ---
@@ -161,7 +162,7 @@ class: header_background
 &lt;br/&gt;
 --
 .center[
-😢 Less performance than native. 
+😭 Less performance than native. 
 ]
 
 ---
@@ -399,7 +400,7 @@ $('#themeSwitcher').on('click', function() {
 
 ---
 class: center middle
-# Your turn 🥼! 
+# Your turn 🧪! 
 
 &lt;img src="assets/images/excited-minions.gif" width="40%" style="display: block; margin: auto;" /&gt;
 
@@ -472,7 +473,7 @@ Click on the ⏯ button or copy/paste 📸 the code to your terminal...
 
 &lt;img src="assets/images/truelle-output.png" width="50%" /&gt;&lt;img src="assets/images/golem-package-structure.png" width="50%" /&gt;
 
-Congrats 🎉! We now have a production ready `{shinyMobile}` project.
+Congrats 🎈! We now have a production ready `{shinyMobile}` project.
 
 ---
 class: inverse center title-slide middle
@@ -517,7 +518,7 @@ processx::process$new(
   )
 )
 shinyMobile::preview_mobile(
-  url = "https://localhost:3434", 
+  url = "http://localhost:3434", 
   device = "iphone8"
 )
 ```
@@ -601,8 +602,8 @@ class: header_background
 --
 
 .small.pull-right[
-## Your turn 🧪
-- Inspect the __app_ui.R__ code and experiment with some of the options.
+## Your turn 🥼
+- Inspect the __./R/app_ui.R__ code and experiment with some of the options.
 - Run `devtools::load_all()` and `run_app()`.
 ]
 
@@ -852,7 +853,7 @@ class: header_background
 
 &lt;br/&gt;
 
-Good new 😆! 
+Good new 😃! 
 
 --
 
@@ -869,11 +870,12 @@ class: header_background
 
 &lt;br/&gt;
 
-.pull-left[
-## Your turn 🧪
+.small.pull-left[
+## Your turn 🥼
 - Open `./R/app_ui.R`.
 - Scroll down to the `golem_add_external_resources` function.
 - Comment out the code as shown on the left (to avoid conflicts with `{shinyMobile}` PWA assets).
+- Call `golem::add_ui_server_files()`.
 ]
 
 
@@ -941,12 +943,25 @@ class: header_background
 
 &lt;br/&gt;
 
-Create the PWA assets in your current `{shinyMobile}` project.
-
+.xsmall.pull-left[
 ## Your turn 🧪
-- Run `charpente::set_pwa` inside your project.
-- Check the `www` folder content.
+- Run `charpente::set_pwa("inst/app", register_service_worker = FALSE, create_dependencies = FALSE)` inside your project.
 - Run `devtools::load_all()` and `run_app()`.
+- Once the RStudio viewer opens, click on `Open in Browser`.
+- Note the app &lt;sup&gt;URL&lt;/sup&gt;: `https://baka.thinkr.fr/&lt;CONTAINER_ID&gt;/rstudio/p/&lt;RSTUDIO_TOKEN&gt;/`.
+- Copy it in the `./inst/app/www/manifest.webmanifest` __start_url__ field. 
+]
+
+.pull-right[
+&lt;br/&gt;
+&lt;img src="assets/images/bakACode.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+
+.xsmall.footnote[
+This workshop is hosted by [ThinkR](https://thinkr.fr/) on a dedicated server. If you are working locally, first deploy your app to a secure server (with __HTTPS__ like [shinyapps.io](https://www.shinyapps.io/)). PWA features __don't work__ locally!!!
+]
+
 
 
 ---
@@ -958,8 +973,8 @@ class: header_background
 .pull-left[
 .small[
 ## Your turn 🧪
-
-- Deploy your app to `shinyapps.io` or browse to `https://dgranjon.shinyapps.io/shinyMobileGolemTest`.
+- App is already running in Chrome.
+- If __App does not work__: use `https://dgranjon.shinyapps.io/shinyMobileGolemTest`.
 - Open the Chrome developer tools: ⌥ + ⌘ + I (Mac), ctrl + shift + I (windows).
 - Follow the steps showed in the figure (in red).
 - Click on `Generate report` and wait.
@@ -1025,11 +1040,11 @@ class: header_background
 &lt;br/&gt;
 
 .pull-left[
-## Your turn 🧪
+## Your turn 🥼
 - Install the deployed app.
 - Create a desktop shortcut.
 - Launch the app.
-- Emulate disabled network connection (Don't shutdown your wifi! See figure 🤣).
+- Emulate disabled network connection (Don't shutdown your wifi! See figure 😆).
 - Reload the page and observe. 
 - Re-activate internet and reload the app.
 ]
