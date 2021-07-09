@@ -1,21 +1,14 @@
 library(shiny)
 library(shinyMobile)
 library(shinyWidgets)
+library(thematic)
+
+thematic_shiny()
 
 shinyApp(
   ui = f7Page(
     title = "Tab layout",
     f7TabLayout(
-      tags$head(
-        tags$script(
-          "$(function(){
-               $('#tapHold').on('taphold', function () {
-                 app.dialog.alert('Tap hold fired!');
-               });
-             });
-             "
-        )
-      ),
       panels = tagList(
         f7Panel(title = "Left Panel", side = "left", theme = "light", "Blabla", effect = "cover"),
         f7Panel(title = "Right Panel", side = "right", theme = "dark", "Blabla", effect = "cover")

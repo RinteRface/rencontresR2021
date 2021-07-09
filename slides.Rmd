@@ -261,7 +261,7 @@ $('#singleLayout').prop('checked', true);
 <div class="md-front-camera"></div>
 <div class="md-top-speaker"></div>
 <div class="md-screen">
-<iframe width="100%" src="http://localhost:3511" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+<iframe width="100%" src="https://connect.thinkr.fr/shinyMobile1/" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
 </div>
 <button class="md-home-button"></button>
 </div>
@@ -273,7 +273,7 @@ $('#singleLayout').prop('checked', true);
 <div class="md-front-camera"></div>
 <div class="md-top-speaker"></div>
 <div class="md-screen">
-<iframe width="100%" src="http://localhost:3512" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+<iframe width="100%" src="https://connect.thinkr.fr/shinyMobile2/" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
 </div>
 <button class="md-home-button"></button>
 </div>
@@ -317,7 +317,7 @@ $('#singleLayout').prop('checked', true);
 <div class="md-front-camera"></div>
 <div class="md-top-speaker"></div>
 <div class="md-screen">
-<iframe width="100%" src="http://localhost:3513" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+<iframe width="100%" src="https://connect.thinkr.fr/shinyMobile3/" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
 </div>
 <button class="md-home-button"></button>
 </div>
@@ -329,7 +329,7 @@ $('#singleLayout').prop('checked', true);
 <div class="md-front-camera"></div>
 <div class="md-top-speaker"></div>
 <div class="md-screen">
-<iframe width="100%" src="http://localhost:3514" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+<iframe width="100%" src="https://connect.thinkr.fr/shinyMobile4/" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
 </div>
 <button class="md-home-button"></button>
 </div>
@@ -362,7 +362,7 @@ $('#themeSwitcher').on('click', function() {
 <div class="md-front-camera"></div>
 <div class="md-top-speaker"></div>
 <div class="md-screen">
-<iframe width="100%" src="http://localhost:3515" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+<iframe width="100%" src="https://connect.thinkr.fr/shinyMobile5/" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
 </div>
 <button class="md-home-button"></button>
 </div>
@@ -374,7 +374,7 @@ $('#themeSwitcher').on('click', function() {
 <div class="md-front-camera"></div>
 <div class="md-top-speaker"></div>
 <div class="md-screen">
-<iframe width="100%" src="http://localhost:3516" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
+<iframe width="100%" src="https://connect.thinkr.fr/shinyMobile6/" allowfullscreen="" frameborder="0" scrolling="no" height="470px"></iframe>
 </div>
 <button class="md-home-button"></button>
 </div>

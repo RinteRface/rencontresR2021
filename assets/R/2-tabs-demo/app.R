@@ -1,5 +1,8 @@
 library(shiny)
 library(shinyMobile)
+library(thematic)
+
+thematic_shiny()
 
 shinyApp(
   ui = f7Page(

@@ -1,5 +1,8 @@
 library(shiny)
 library(shinyMobile)
+library(thematic)
+
+thematic_shiny()
 
 # source modules
 e <- environment()
